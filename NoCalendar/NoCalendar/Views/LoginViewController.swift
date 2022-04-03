@@ -7,13 +7,21 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewDelegate {
+class LoginViewController: UIViewController {
 
     private let LoginPresenter = LoginPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.portrait)
     }
 }
 
