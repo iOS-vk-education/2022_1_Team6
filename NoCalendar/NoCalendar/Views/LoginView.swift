@@ -3,11 +3,11 @@ import UIKit
 class LoginViewController: UIViewController, LoginViewDelegate {
     @IBOutlet var Kek: UIView!
     @IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var LoginInput: UITextField!
+    @IBOutlet weak var PasswordInput: UITextField!
     
     private let loginPresenter = LoginPresenter()
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginPresenter.setloginViewDelegate(loginDelegate: self)
@@ -19,7 +19,11 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     
     @IBAction func DidPressLoginButton(_ sender: Any) {
-        loginPresenter.loginPressed()
+        let login = LoginInput.text
+        let password = PasswordInput.text
+        if let log = login, let pass = password {
+            loginPresenter.loginPressed(login: log, password: pass)
+        }
     }
     
     
@@ -28,7 +32,10 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         AppUtility.lockOrientation(.portrait)
     }
     
-    func changeButton() {
-        LoginButton.setTitle("kek", for: .normal)
+    func loginError() {
+        print("error")
+    }
+    func loginSuccess() {
+        print("success")
     }
 }

@@ -8,7 +8,8 @@
 import Foundation
 
 protocol LoginViewDelegate: NSObjectProtocol {
-    func changeButton()
+    func loginSuccess()
+    func loginError()
 }
 
 class LoginPresenter {
@@ -23,8 +24,11 @@ class LoginPresenter {
         self.loginViewDelegate = loginDelegate;
     }
     
-    func loginPressed() {
-        print("lol")
-        loginViewDelegate?.changeButton()
+    func loginPressed(login:String, password:String) {
+        if (loginModel.validateLoginInputs(login: login, password: password)) {
+            loginViewDelegate?.loginSuccess()
+        } else {
+            loginViewDelegate?.loginError()
+        }
     }
 }

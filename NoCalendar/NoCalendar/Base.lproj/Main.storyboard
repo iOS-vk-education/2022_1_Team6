@@ -43,7 +43,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Электронная почта" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
                                 <rect key="frame" x="67" y="427" width="256" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -133,6 +133,8 @@
                     <connections>
                         <outlet property="Kek" destination="8bC-Xf-vdC" id="lnC-ED-mkS"/>
                         <outlet property="LoginButton" destination="x9E-pX-t85" id="1aa-Lx-t8V"/>
+                        <outlet property="LoginInput" destination="1k8-Bo-Jck" id="LQB-Fu-A3i"/>
+                        <outlet property="PasswordInput" destination="dZd-32-JX9" id="aKb-cC-FZj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
