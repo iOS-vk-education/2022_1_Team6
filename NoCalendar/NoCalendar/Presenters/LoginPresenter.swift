@@ -19,6 +19,10 @@ class LoginPresenter {
         print("Hello from presenter !")
     }
     
+    func setloginViewDelegate(loginDelegate: LoginViewDelegate?) {
+        self.loginViewDelegate = loginDelegate;
+    }
+    
     func loginPressed() {
         print("lol")
         loginViewDelegate?.changeButton()

@@ -10,7 +10,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginPresenter.loginViewDelegate
+        loginPresenter.setloginViewDelegate(loginDelegate: self)
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
@@ -19,7 +19,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     
     @IBAction func DidPressLoginButton(_ sender: Any) {
-        print("kek")
         loginPresenter.loginPressed()
     }
     
