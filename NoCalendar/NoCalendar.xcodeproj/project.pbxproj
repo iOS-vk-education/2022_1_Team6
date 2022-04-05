@@ -11,11 +11,11 @@
 		FC4FA79327FA157700483FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79127FA157700483FEF /* Main.storyboard */; };
 		FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79427FA157800483FEF /* Assets.xcassets */; };
 		FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */; };
-		FC4FA7BC27FA1A8800483FEF /* Models in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA7BB27FA1A8800483FEF /* Models */; };
-		FC4FA7BE27FA1AB000483FEF /* Views in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA7BD27FA1AB000483FEF /* Views */; };
-		FC4FA7C027FA1B0700483FEF /* Presenters in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA7BF27FA1B0700483FEF /* Presenters */; };
-		FC518D3927FA3338009552F6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518D3827FA3338009552F6 /* SceneDelegate.swift */; };
 		FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518D3B27FA34D1009552F6 /* AppUtility.swift */; };
+		FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */; };
+		FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */; };
+		FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F627FC6876000DFC1D /* LoginModel.swift */; };
+		FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,11 +44,11 @@
 		FC4FA79927FA157800483FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC4FA79E27FA157800483FEF /* NoCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA7A827FA157800483FEF /* NoCalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC4FA7BB27FA1A8800483FEF /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		FC4FA7BD27FA1AB000483FEF /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		FC4FA7BF27FA1B0700483FEF /* Presenters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Presenters; sourceTree = "<group>"; };
-		FC518D3827FA3338009552F6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../SceneDelegate.swift; sourceTree = "<group>"; };
 		FC518D3B27FA34D1009552F6 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		FC6EE1F627FC6876000DFC1D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,16 +97,16 @@
 		FC4FA78A27FA157700483FEF /* NoCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				FC6EE1F527FC686A000DFC1D /* Models */,
+				FC6EE1F127FC680D000DFC1D /* Presenters */,
+				FC6EE1EE27FC67D2000DFC1D /* Views */,
 				FC518D3A27FA34A8009552F6 /* Utilities */,
-				FC4FA7BF27FA1B0700483FEF /* Presenters */,
-				FC4FA7BD27FA1AB000483FEF /* Views */,
-				FC4FA7BB27FA1A8800483FEF /* Models */,
 				FC4FA78B27FA157700483FEF /* AppDelegate.swift */,
-				FC518D3827FA3338009552F6 /* SceneDelegate.swift */,
 				FC4FA79127FA157700483FEF /* Main.storyboard */,
 				FC4FA79427FA157800483FEF /* Assets.xcassets */,
 				FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */,
 				FC4FA79927FA157800483FEF /* Info.plist */,
+				FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */,
 			);
 			path = NoCalendar;
 			sourceTree = "<group>";
@@ -117,6 +117,30 @@
 				FC518D3B27FA34D1009552F6 /* AppUtility.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		FC6EE1EE27FC67D2000DFC1D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FC6EE1F127FC680D000DFC1D /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		FC6EE1F527FC686A000DFC1D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC6EE1F627FC6876000DFC1D /* LoginModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,10 +249,7 @@
 			files = (
 				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
-				FC4FA7BC27FA1A8800483FEF /* Models in Resources */,
 				FC4FA79327FA157700483FEF /* Main.storyboard in Resources */,
-				FC4FA7BE27FA1AB000483FEF /* Views in Resources */,
-				FC4FA7C027FA1B0700483FEF /* Presenters in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,8 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4FA78C27FA157700483FEF /* AppDelegate.swift in Sources */,
-				FC518D3927FA3338009552F6 /* SceneDelegate.swift in Sources */,
+				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
+				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
+				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
+				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

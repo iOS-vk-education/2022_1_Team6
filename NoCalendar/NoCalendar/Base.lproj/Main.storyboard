@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="BYZ-38-t0r" customClass="LoginViewController" customModule="NoCalendar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JY-S6-n31">
-                                <rect key="frame" x="22" y="326" width="346" height="48"/>
+                                <rect key="frame" x="22.333333333333343" y="326" width="345.66666666666663" height="48"/>
                                 <string key="text">Некалендарь - приложение, которое 
 поможет вам отслеживать свои дела</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -70,6 +70,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="DidPressLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bnC-UK-wGR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVv-eX-DQV">
                                 <rect key="frame" x="63" y="669" width="264" height="40.333333333333371"/>
@@ -127,6 +130,10 @@
                             <constraint firstItem="mlF-PZ-A3c" firstAttribute="top" secondItem="tze-oA-f3G" secondAttribute="bottom" constant="8" symbolic="YES" id="ycr-vV-2Xp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Kek" destination="8bC-Xf-vdC" id="lnC-ED-mkS"/>
+                        <outlet property="LoginButton" destination="x9E-pX-t85" id="1aa-Lx-t8V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
