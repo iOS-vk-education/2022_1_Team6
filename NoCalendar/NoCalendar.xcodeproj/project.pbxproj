@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC4FA78C27FA157700483FEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4FA78B27FA157700483FEF /* AppDelegate.swift */; };
+		FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBAC918280C80570033A055 /* SignUp.storyboard */; };
+		FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBAC917280C80560033A055 /* Month.storyboard */; };
+		FC3FD9CF280C83170057DBAB /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3FD9CE280C83170057DBAB /* Settings.storyboard */; };
+		FC3FD9D1280C841C0057DBAB /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D0280C841C0057DBAB /* MonthView.swift */; };
+		FC3FD9D3280C84360057DBAB /* MonthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D2280C84360057DBAB /* MonthPresenter.swift */; };
+		FC3FD9D5280C846F0057DBAB /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D4280C846F0057DBAB /* SettingsModel.swift */; };
+		FC3FD9D7280C84AB0057DBAB /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */; };
+		FC3FD9D9280C856C0057DBAB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D8280C856C0057DBAB /* SettingsView.swift */; };
+		FC3FD9DB280C85780057DBAB /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */; };
+		FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */; };
 		FC4FA79327FA157700483FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79127FA157700483FEF /* Main.storyboard */; };
 		FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79427FA157800483FEF /* Assets.xcassets */; };
 		FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */; };
@@ -20,7 +29,9 @@
 		FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FE280C35920033A055 /* SignUpView.swift */; };
 		FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC900280C35A00033A055 /* SignUpPresenter.swift */; };
 		FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC902280C35CC0033A055 /* SignUpModel.swift */; };
-		FCBAC905280C3CA20033A055 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBAC904280C3CA20033A055 /* SignUp.storyboard */; };
+		FCBAC90C280C74350033A055 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90B280C74350033A055 /* UserModel.swift */; };
+		FCBAC90E280C76B90033A055 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90D280C76B90033A055 /* EventModel.swift */; };
+		FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC915280C802F0033A055 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC3FD9CE280C83170057DBAB /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		FC3FD9D0280C841C0057DBAB /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		FC3FD9D2280C84360057DBAB /* MonthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPresenter.swift; sourceTree = "<group>"; };
+		FC3FD9D4280C846F0057DBAB /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
+		FC3FD9D8280C856C0057DBAB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
 		FC4FA78827FA157700483FEF /* NoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC4FA78B27FA157700483FEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC4FA79227FA157700483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC4FA79427FA157800483FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC4FA79727FA157800483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +76,11 @@
 		FCBAC8FE280C35920033A055 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FCBAC900280C35A00033A055 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		FCBAC902280C35CC0033A055 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		FCBAC904280C3CA20033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		FCBAC90B280C74350033A055 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		FCBAC90D280C76B90033A055 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FCBAC915280C802F0033A055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCBAC917280C80560033A055 /* Month.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Month.storyboard; sourceTree = "<group>"; };
+		FCBAC918280C80570033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +129,20 @@
 		FC4FA78A27FA157700483FEF /* NoCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				FCBAC90A280C741D0033A055 /* ObjectModels */,
 				FC6EE1F527FC686A000DFC1D /* Models */,
 				FC6EE1F127FC680D000DFC1D /* Presenters */,
 				FC6EE1EE27FC67D2000DFC1D /* Views */,
 				FC518D3A27FA34A8009552F6 /* Utilities */,
-				FC4FA78B27FA157700483FEF /* AppDelegate.swift */,
-				FC4FA79127FA157700483FEF /* Main.storyboard */,
-				FCBAC904280C3CA20033A055 /* SignUp.storyboard */,
 				FC4FA79427FA157800483FEF /* Assets.xcassets */,
 				FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */,
 				FC4FA79927FA157800483FEF /* Info.plist */,
 				FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */,
+				FC4FA79127FA157700483FEF /* Main.storyboard */,
+				FCBAC915280C802F0033A055 /* AppDelegate.swift */,
+				FCBAC917280C80560033A055 /* Month.storyboard */,
+				FC3FD9CE280C83170057DBAB /* Settings.storyboard */,
+				FCBAC918280C80570033A055 /* SignUp.storyboard */,
 			);
 			path = NoCalendar;
 			sourceTree = "<group>";
@@ -127,6 +152,7 @@
 			children = (
 				FC518D3B27FA34D1009552F6 /* AppUtility.swift */,
 				FCBAC8FC280C2C4C0033A055 /* Constants.swift */,
+				FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -136,6 +162,8 @@
 			children = (
 				FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */,
 				FCBAC8FE280C35920033A055 /* SignUpView.swift */,
+				FC3FD9D0280C841C0057DBAB /* MonthView.swift */,
+				FC3FD9D8280C856C0057DBAB /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +173,8 @@
 			children = (
 				FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */,
 				FCBAC900280C35A00033A055 /* SignUpPresenter.swift */,
+				FC3FD9D2280C84360057DBAB /* MonthPresenter.swift */,
+				FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -154,8 +184,19 @@
 			children = (
 				FC6EE1F627FC6876000DFC1D /* LoginModel.swift */,
 				FCBAC902280C35CC0033A055 /* SignUpModel.swift */,
+				FC3FD9D4280C846F0057DBAB /* SettingsModel.swift */,
+				FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FCBAC90A280C741D0033A055 /* ObjectModels */ = {
+			isa = PBXGroup;
+			children = (
+				FCBAC90B280C74350033A055 /* UserModel.swift */,
+				FCBAC90D280C76B90033A055 /* EventModel.swift */,
+			);
+			path = ObjectModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +303,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */,
+				FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */,
 				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
+				FC3FD9CF280C83170057DBAB /* Settings.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
-				FCBAC905280C3CA20033A055 /* SignUp.storyboard in Resources */,
 				FC4FA79327FA157700483FEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,9 +333,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3FD9D1280C841C0057DBAB /* MonthView.swift in Sources */,
+				FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */,
+				FC3FD9D7280C84AB0057DBAB /* MonthModel.swift in Sources */,
 				FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */,
-				FC4FA78C27FA157700483FEF /* AppDelegate.swift in Sources */,
+				FCBAC90E280C76B90033A055 /* EventModel.swift in Sources */,
+				FC3FD9DB280C85780057DBAB /* SettingsPresenter.swift in Sources */,
+				FC3FD9D9280C856C0057DBAB /* SettingsView.swift in Sources */,
+				FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */,
 				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
+				FC3FD9D3280C84360057DBAB /* MonthPresenter.swift in Sources */,
+				FC3FD9D5280C846F0057DBAB /* SettingsModel.swift in Sources */,
 				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
 				FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */,
@@ -300,6 +351,7 @@
 				FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */,
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
+				FCBAC90C280C74350033A055 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,8 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     @IBOutlet weak var ValidationHint: UILabel!
     private let loginPresenter = LoginPresenter()
+    private let sbNames = StoryBoardsNames()
+    private let vcNames = UiControllerNames()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     func loginValidate(errorCode: loginErrors) {
         switch errorCode {
         case .noError:
-            self.loginSuccess()
+            break
         case .shortName:
             ValidationHint.text = "Невалидный email"
             ValidationHint.isHidden = false
@@ -49,11 +51,23 @@ class LoginViewController: UIViewController, LoginViewDelegate {
             ValidationHint.text = "Неверный пароль"
             ValidationHint.isHidden = false
         }
-
     }
 
     func loginSuccess() {
         ValidationHint.isHidden = true
         print("...loging")
+        self.goToMonthView()
+    }
+    
+    func loginfail() {
+        ValidationHint.text = "Такого пользователя не существует"
+        ValidationHint.isHidden = false
+    }
+    
+    func goToMonthView() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.month, bundle:nil)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.month)
+        resultViewController.modalPresentationStyle = .fullScreen
+        self.present(resultViewController, animated:true, completion:nil)
     }
 }

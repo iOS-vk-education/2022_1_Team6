@@ -49,10 +49,10 @@
                                     <constraint firstAttribute="height" constant="34" id="Ohw-UN-ihz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9E-pX-t85">
-                                <rect key="frame" x="55" y="598" width="280" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9E-pX-t85">
+                                <rect key="frame" x="55" y="615.33333333333337" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="1" blue="0.0" alpha="0.60528766556291391" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MFA-nI-EvB"/>
@@ -96,8 +96,8 @@
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVv-eX-DQV">
-                                <rect key="frame" x="55" y="681" width="280" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVv-eX-DQV">
+                                <rect key="frame" x="55" y="695.33333333333337" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="0.8546409354304636" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="GCR-nq-yqZ"/>
@@ -146,7 +146,6 @@
                             <constraint firstItem="1k8-Bo-Jck" firstAttribute="top" secondItem="2JY-S6-n31" secondAttribute="bottom" constant="53" id="itA-Oy-ymu"/>
                             <constraint firstItem="dZd-32-JX9" firstAttribute="leading" secondItem="wNT-Hi-6so" secondAttribute="leading" constant="47" id="m2q-AE-WwL"/>
                             <constraint firstItem="wNT-Hi-6so" firstAttribute="trailing" secondItem="1k8-Bo-Jck" secondAttribute="trailing" constant="47" id="nVS-oZ-dsm"/>
-                            <constraint firstItem="1k8-Bo-Jck" firstAttribute="width" secondItem="dZd-32-JX9" secondAttribute="width" id="p6L-su-06f"/>
                             <constraint firstItem="mlF-PZ-A3c" firstAttribute="trailing" secondItem="tze-oA-f3G" secondAttribute="trailing" id="rm6-U3-Qju"/>
                             <constraint firstItem="mlF-PZ-A3c" firstAttribute="top" secondItem="tze-oA-f3G" secondAttribute="bottom" constant="8" symbolic="YES" id="ycr-vV-2Xp"/>
                         </constraints>
