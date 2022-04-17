@@ -4,7 +4,7 @@ class LoginModel {
     private let codes = statusCodes()
     func validateLoginInputs(login: String, password:String) -> loginErrors {
         if login.count < 5 {
-            return loginErrors.shortName
+            return loginErrors.shortUsername
         }
         
         if password.count < 5 {
@@ -25,7 +25,6 @@ class LoginModel {
             case .failure(let error):
                 DispatchQueue.main.async {
                     let err = error as NSError
-                    print(err.code as Int)
                     switch err.code {
                     case self.codes.notFound:
                         failCallBack?(loginErrors.noSuchUser)

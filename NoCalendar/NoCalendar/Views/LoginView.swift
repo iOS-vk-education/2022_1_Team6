@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         switch errorCode {
         case .noError:
             break
-        case .shortName:
+        case .shortUsername:
             ValidationHint.text = "Невалидный email"
             ValidationHint.isHidden = false
         case .shortPassword:
@@ -59,12 +59,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         self.goToMonthView()
     }
     
-    func loginfail() {
-        ValidationHint.text = "Такого пользователя не существует"
-        ValidationHint.isHidden = false
-    }
-    
-    func goToMonthView() {
+    private func goToMonthView() {
         let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.month, bundle:nil)
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.month)
         resultViewController.modalPresentationStyle = .fullScreen

@@ -125,6 +125,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="DidPressRegBtn:" destination="0Pb-Tq-cDu" eventType="touchUpInside" id="3Zx-Rb-g90"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gm1-Db-S4V"/>
@@ -156,7 +159,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="q05-Mp-alP"/>
                     <connections>
+                        <outlet property="EmailInput" destination="lqR-og-q9f" id="nBj-Cx-nm2"/>
                         <outlet property="ErrorLabel" destination="uSb-JX-OaT" id="QOu-dO-4Sb"/>
+                        <outlet property="LoginInput" destination="Sys-a6-zFe" id="TID-DF-Dq9"/>
+                        <outlet property="PasswordInput" destination="Fz6-CU-Ywy" id="DIS-vM-emT"/>
+                        <outlet property="PasswordRepInput" destination="Fz6-CU-Ywy" id="s79-DC-rTF"/>
+                        <outlet property="RegBtn" destination="WlS-F2-bAY" id="GOT-mT-XOF"/>
                         <outlet property="SignUpView" destination="HoJ-gC-SLC" id="khe-OI-ZTy"/>
                     </connections>
                 </viewController>

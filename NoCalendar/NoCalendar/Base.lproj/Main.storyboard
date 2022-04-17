@@ -56,7 +56,7 @@
                                 <color key="backgroundColor" red="0.20000000000000001" green="1" blue="0.0" alpha="0.60528766556291391" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MFA-nI-EvB"/>
-                                    <constraint firstAttribute="width" constant="280" id="izT-nG-bDt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="izT-nG-bDt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +81,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
                                 <rect key="frame" x="47" y="427" width="296" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -100,7 +100,7 @@
                                 <rect key="frame" x="55" y="695.33333333333337" width="280" height="40"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="0.8546409354304636" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="GCR-nq-yqZ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="GCR-nq-yqZ"/>
                                     <constraint firstAttribute="height" constant="40" id="YeQ-ve-HTH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="1"/>
@@ -126,7 +126,7 @@
                         <color key="tintColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="rVv-eX-DQV" firstAttribute="top" secondItem="x9E-pX-t85" secondAttribute="bottom" constant="40" id="2gY-04-8hz"/>
-                            <constraint firstItem="1k8-Bo-Jck" firstAttribute="firstBaseline" secondItem="lY2-db-Jcm" secondAttribute="baseline" constant="24" symbolType="layoutAnchor" id="5tK-iX-axd"/>
+                            <constraint firstItem="1k8-Bo-Jck" firstAttribute="firstBaseline" secondItem="lY2-db-Jcm" secondAttribute="baseline" constant="32" symbolType="layoutAnchor" id="5tK-iX-axd"/>
                             <constraint firstItem="lY2-db-Jcm" firstAttribute="firstBaseline" secondItem="2JY-S6-n31" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="6Kt-iD-fMd"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="6pi-5z-uni"/>
                             <constraint firstItem="x9E-pX-t85" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="Brm-kq-OAd"/>

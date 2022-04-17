@@ -9,12 +9,20 @@ import Foundation
 
 enum loginErrors {
     case noError
-    case shortName
+    case shortUsername
     case shortPassword
     case noSuchUser
     case passwordMismatch
 }
 
+enum RegErrors {
+    case noError
+    case shortUsername
+    case shortPassword
+    case invalidEmail
+    case passwordMismatch
+    case userExist
+}
 
 struct StoryBoardsNames {
     let login = "Main"

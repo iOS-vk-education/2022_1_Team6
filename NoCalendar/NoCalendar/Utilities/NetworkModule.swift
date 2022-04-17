@@ -58,8 +58,8 @@ final class NetworkModule: NetworkDelegate {
                     self.token = response.allHeaderFields["token"] as? String ?? ""
                     let decoder = JSONDecoder()
                     do {
-                        let message = try decoder.decode(User.self, from: data)
-                        completion(.success(message))
+                        let user = try decoder.decode(User.self, from: data)
+                        completion(.success(user))
                     } catch let error {
                         completion(.failure(error))
                     }
@@ -70,6 +70,38 @@ final class NetworkModule: NetworkDelegate {
     
     func register(login: String, email: String, password: String,
                   completion: @escaping (Result<User, Error>) -> Void) {
-        print("register")
+        let json: [String: Any] = ["login": login, "email": email, "password": password]
+        
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        // create post request
+        let url = URL(string: endpoint + "register")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        // insert json data to the request
+        request.httpBody = jsonData
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.badRequest { // если 400 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {  // иначе кастим юзера
+                    self.token = response.allHeaderFields["token"] as? String ?? ""
+                    let tmpUser = User(name: nil, surname: nil, login: login, password: password, email: email)
+                    completion(.success(tmpUser))
+                }
+            }
+        }.resume()
     }
 }

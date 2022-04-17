@@ -13,5 +13,4 @@ struct User : Codable {
     let login: String
     let password: String?
     let email: String?
-    let token: String?
 }

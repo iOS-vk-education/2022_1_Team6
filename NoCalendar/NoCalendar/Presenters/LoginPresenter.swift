@@ -9,7 +9,6 @@ import Foundation
 
 protocol LoginViewDelegate: NSObjectProtocol {
     func loginSuccess()
-    func loginfail()
     func loginValidate(errorCode: loginErrors)
 }
 
