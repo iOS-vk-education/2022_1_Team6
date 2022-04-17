@@ -1,10 +1,15 @@
 import Foundation
 
 class LoginModel {
-    func validateLoginInputs(login: String, password:String) -> Bool {
-        if login.count < 5 || password.count < 5 {
-            return false
+    func validateLoginInputs(login: String, password:String) -> loginErrors {
+        if login.count < 5 {
+            return loginErrors.shortName
         }
-        return true
+        
+        if password.count < 5 {
+            return loginErrors.shortPassword
+        }
+        
+        return loginErrors.noError
     }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Pb-Tq-cDu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main-->
+        <scene sceneID="sXc-Vy-V4S">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="JgD-EU-788" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mON-ze-JvM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="78"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="QjN-LX-B32">
+            <objects>
+                <viewController storyboardIdentifier="Signup" id="0Pb-Tq-cDu" customClass="SignUpViewController" customModule="NoCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HoJ-gC-SLC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOh-ZE-XMM">
+                                <rect key="frame" x="75" y="677" width="264" height="40.5"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="0.85464093539999997" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="264" id="Hxa-FJ-viP"/>
+                                    <constraint firstAttribute="width" constant="264" id="XpV-LL-ff1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40.329999999999998" id="h5g-md-Nga"/>
+                                    <constraint firstAttribute="height" constant="40.329999999999998" id="iAP-VT-Pj2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Войти"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Авторизация" cornerStyle="large" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="JgD-EU-788" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Myd-Wr-Iak"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gm1-Db-S4V"/>
+                        <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="gm1-Db-S4V" firstAttribute="bottom" secondItem="IOh-ZE-XMM" secondAttribute="bottom" constant="144.66999999999999" id="30A-OI-fm0"/>
+                            <constraint firstItem="IOh-ZE-XMM" firstAttribute="leading" secondItem="gm1-Db-S4V" secondAttribute="leading" constant="75" id="E6D-Cu-hoJ"/>
+                            <constraint firstItem="gm1-Db-S4V" firstAttribute="trailing" secondItem="IOh-ZE-XMM" secondAttribute="trailing" constant="75" id="Tq8-7M-W0O"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="q05-Mp-alP"/>
+                    <connections>
+                        <outlet property="SignUpView" destination="HoJ-gC-SLC" id="khe-OI-ZTy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hA-G5-CF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="79"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

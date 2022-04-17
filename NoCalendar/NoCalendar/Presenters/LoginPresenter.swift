@@ -9,7 +9,7 @@ import Foundation
 
 protocol LoginViewDelegate: NSObjectProtocol {
     func loginSuccess()
-    func loginError()
+    func loginValidate(errorCode: loginErrors)
 }
 
 class LoginPresenter {
@@ -25,10 +25,7 @@ class LoginPresenter {
     }
     
     func loginPressed(login:String, password:String) {
-        if (loginModel.validateLoginInputs(login: login, password: password)) {
-            loginViewDelegate?.loginSuccess()
-        } else {
-            loginViewDelegate?.loginError()
-        }
+        let validationRes = loginModel.validateLoginInputs(login: login, password: password)
+        loginViewDelegate?.loginValidate(errorCode: validationRes)
     }
 }

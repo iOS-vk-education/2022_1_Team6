@@ -16,6 +16,11 @@
 		FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */; };
 		FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F627FC6876000DFC1D /* LoginModel.swift */; };
 		FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */; };
+		FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FC280C2C4C0033A055 /* Constants.swift */; };
+		FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FE280C35920033A055 /* SignUpView.swift */; };
+		FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC900280C35A00033A055 /* SignUpPresenter.swift */; };
+		FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC902280C35CC0033A055 /* SignUpModel.swift */; };
+		FCBAC905280C3CA20033A055 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBAC904280C3CA20033A055 /* SignUp.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FC6EE1F627FC6876000DFC1D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FCBAC8FC280C2C4C0033A055 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FCBAC8FE280C35920033A055 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		FCBAC900280C35A00033A055 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		FCBAC902280C35CC0033A055 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		FCBAC904280C3CA20033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,7 @@
 				FC518D3A27FA34A8009552F6 /* Utilities */,
 				FC4FA78B27FA157700483FEF /* AppDelegate.swift */,
 				FC4FA79127FA157700483FEF /* Main.storyboard */,
+				FCBAC904280C3CA20033A055 /* SignUp.storyboard */,
 				FC4FA79427FA157800483FEF /* Assets.xcassets */,
 				FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */,
 				FC4FA79927FA157800483FEF /* Info.plist */,
@@ -115,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FC518D3B27FA34D1009552F6 /* AppUtility.swift */,
+				FCBAC8FC280C2C4C0033A055 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -123,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */,
+				FCBAC8FE280C35920033A055 /* SignUpView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -131,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */,
+				FCBAC900280C35A00033A055 /* SignUpPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -139,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FC6EE1F627FC6876000DFC1D /* LoginModel.swift */,
+				FCBAC902280C35CC0033A055 /* SignUpModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +264,7 @@
 			files = (
 				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
+				FCBAC905280C3CA20033A055 /* SignUp.storyboard in Resources */,
 				FC4FA79327FA157700483FEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,10 +290,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */,
 				FC4FA78C27FA157700483FEF /* AppDelegate.swift in Sources */,
 				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
 				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
+				FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */,
+				FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */,
+				FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */,
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
 			);
@@ -451,8 +471,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QD3B75486;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoCalendar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -467,6 +489,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = c.NoCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -478,8 +501,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3QD3B75486;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoCalendar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -494,6 +519,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = c.NoCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
