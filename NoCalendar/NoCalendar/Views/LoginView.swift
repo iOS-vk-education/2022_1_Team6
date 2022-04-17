@@ -19,7 +19,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         return false
     }
     
-    
     @IBAction func DidPressLoginButton(_ sender: Any) {
         let login = LoginInput.text
         let password = PasswordInput.text
@@ -27,8 +26,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
             loginPresenter.loginPressed(login: log, password: pass)
         }
     }
-    
-
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
