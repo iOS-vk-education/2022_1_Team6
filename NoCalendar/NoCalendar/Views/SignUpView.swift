@@ -9,9 +9,11 @@ import UIKit
 
 class SignUpViewController: UIViewController, SignUpViewDelegate {
     @IBOutlet var SignUpView: UIView!
+    @IBOutlet weak var ErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ErrorLabel.isHidden = true
         print("alive and kicking")
     }
     
