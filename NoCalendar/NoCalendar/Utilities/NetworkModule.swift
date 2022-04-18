@@ -55,7 +55,7 @@ final class NetworkModule: NetworkDelegate {
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
                 } else {  // иначе кастим юзера
-                    self.token = response.allHeaderFields["token"] as? String ?? ""
+                    self.setToken(response: response)
                     let decoder = JSONDecoder()
                     do {
                         let user = try decoder.decode(User.self, from: data)
@@ -87,7 +87,7 @@ final class NetworkModule: NetworkDelegate {
                 completion(.failure(error))
                 return
             }
-            guard let data = data else {
+            guard data != nil else {
                 completion(.failure(NetworkError.emptyData))
                 return
             }
@@ -97,11 +97,19 @@ final class NetworkModule: NetworkDelegate {
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
                 } else {  // иначе кастим юзера
-                    self.token = response.allHeaderFields["token"] as? String ?? ""
-                    let tmpUser = User(name: nil, surname: nil, login: login, password: password, email: email)
+                    self.setToken(response: response)
+                    let tmpUser = User(login: login, email: email, name: nil, surname: nil, password: password)
                     completion(.success(tmpUser))
                 }
             }
         }.resume()
+    }
+    
+    private func setToken(response: HTTPURLResponse) {
+        print("setting...")
+        self.token = response.allHeaderFields["token"] as? String ?? ""
+        UserDefaults.standard.set(self.token, forKey: networkKeyString)
+        UserDefaults.standard.synchronize()
+        print("setted")
     }
 }

@@ -32,7 +32,7 @@ class SignUpModel {
         NetworkModule.shared.register(login: login, email: email, password: password, completion: { [] result in
             switch result {
             case .success(let user):
-                print(user) //  TODO save data on device
+//                DatabaseModule.shared.saveUser(user: user)
                 DispatchQueue.main.async {
                     okCallback?()
                 }

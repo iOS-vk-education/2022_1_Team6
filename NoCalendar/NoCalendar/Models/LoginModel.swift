@@ -18,7 +18,7 @@ class LoginModel {
         NetworkModule.shared.authorise(login: login, password: password, completion: { [] result in
             switch result {
             case .success(let user):
-                print(user) //  TODO save data on device
+//                DatabaseModule.shared.saveUser(user: user)
                 DispatchQueue.main.async {
                     okCallback?()
                 }
@@ -36,5 +36,14 @@ class LoginModel {
                 }
             }
         })
+    }
+    
+    func isTokenPresent() -> Bool {
+        print("check")
+        if UserDefaults.standard.value(forKey: networkKeyString) != nil {
+            return true
+        } else {
+            return false
+        }
     }
 }

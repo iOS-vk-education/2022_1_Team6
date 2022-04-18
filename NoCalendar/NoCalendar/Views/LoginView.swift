@@ -17,6 +17,12 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         loginPresenter.setloginViewDelegate(loginDelegate: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.portrait)
+        loginPresenter.checkToken()
+    }
+    
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
         return false
     }
@@ -24,14 +30,10 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     @IBAction func DidPressLoginButton(_ sender: Any) {
         let login = LoginInput.text
         let password = PasswordInput.text
+        print(UserDefaults.standard.value(forKey: networkKeyString))
         if let log = login, let pass = password {
             loginPresenter.loginPressed(login: log, password: pass)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        AppUtility.lockOrientation(.portrait)
     }
     
     func loginValidate(errorCode: loginErrors) {
@@ -56,6 +58,10 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     func loginSuccess() {
         ValidationHint.isHidden = true
         print("...loging")
+        self.goToMonthView()
+    }
+    
+    func logged() {
         self.goToMonthView()
     }
     

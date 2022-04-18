@@ -10,6 +10,7 @@ import Foundation
 protocol LoginViewDelegate: NSObjectProtocol {
     func loginSuccess()
     func loginValidate(errorCode: loginErrors)
+    func logged()
 }
 
 class LoginPresenter {
@@ -30,6 +31,13 @@ class LoginPresenter {
             self.loginModel.auth(login: login, password: password, okCallback: self.loginViewDelegate?.loginSuccess, failCallBack: self.loginViewDelegate?.loginValidate)
         } else {
             loginViewDelegate?.loginValidate(errorCode: validationRes)
+        }
+    }
+    
+    func checkToken() {
+        print("kek")
+        if self.loginModel.isTokenPresent() {
+            loginViewDelegate?.logged()
         }
     }
 }

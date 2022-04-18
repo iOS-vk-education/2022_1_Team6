@@ -48,3 +48,4 @@ struct statusCodes {
     let notFound = 404
 }
 
+let networkKeyString = "networkToken"

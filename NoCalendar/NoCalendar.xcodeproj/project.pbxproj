@@ -17,6 +17,9 @@
 		FC3FD9D9280C856C0057DBAB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9D8280C856C0057DBAB /* SettingsView.swift */; };
 		FC3FD9DB280C85780057DBAB /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */; };
 		FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */; };
+		FC3FD9E2280DF3120057DBAB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = FC3FD9E1280DF3120057DBAB /* Realm */; };
+		FC3FD9E4280DF3120057DBAB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FC3FD9E3280DF3120057DBAB /* RealmSwift */; };
+		FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */; };
 		FC4FA79327FA157700483FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79127FA157700483FEF /* Main.storyboard */; };
 		FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79427FA157800483FEF /* Assets.xcassets */; };
 		FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */; };
@@ -60,6 +63,7 @@
 		FC3FD9D8280C856C0057DBAB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModule.swift; sourceTree = "<group>"; };
+		FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseModule.swift; sourceTree = "<group>"; };
 		FC4FA78827FA157700483FEF /* NoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA79227FA157700483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC4FA79427FA157800483FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3FD9E4280DF3120057DBAB /* RealmSwift in Frameworks */,
+				FC3FD9E2280DF3120057DBAB /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +159,7 @@
 				FC518D3B27FA34D1009552F6 /* AppUtility.swift */,
 				FCBAC8FC280C2C4C0033A055 /* Constants.swift */,
 				FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */,
+				FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -215,6 +222,10 @@
 			dependencies = (
 			);
 			name = NoCalendar;
+			packageProductDependencies = (
+				FC3FD9E1280DF3120057DBAB /* Realm */,
+				FC3FD9E3280DF3120057DBAB /* RealmSwift */,
+			);
 			productName = NoCalendar;
 			productReference = FC4FA78827FA157700483FEF /* NoCalendar.app */;
 			productType = "com.apple.product-type.application";
@@ -287,6 +298,9 @@
 				Base,
 			);
 			mainGroup = FC4FA77F27FA157700483FEF;
+			packageReferences = (
+				FC3FD9E0280DF3120057DBAB /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = FC4FA78927FA157700483FEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -351,6 +365,7 @@
 				FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */,
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
+				FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */,
 				FCBAC90C280C74350033A055 /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -690,6 +705,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC3FD9E0280DF3120057DBAB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC3FD9E1280DF3120057DBAB /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC3FD9E0280DF3120057DBAB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		FC3FD9E3280DF3120057DBAB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC3FD9E0280DF3120057DBAB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FC4FA78027FA157700483FEF /* Project object */;
 }
