@@ -36,7 +36,9 @@ class LoginPresenter {
     
     func checkToken() {
         print("kek")
-        if self.loginModel.isTokenPresent() {
+        let isPresent = self.loginModel.isTokenPresent()
+        print(isPresent)
+        if isPresent {
             loginViewDelegate?.logged()
         }
     }

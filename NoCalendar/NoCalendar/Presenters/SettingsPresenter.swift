@@ -12,6 +12,7 @@ protocol SettingsViewDelegate: NSObjectProtocol {
 
 class SettingsPresenter {
     weak private var settingDelegate : SettingsViewDelegate?
+
     private let settingsModel = SettingsModel()
     
     init() {

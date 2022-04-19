@@ -54,7 +54,7 @@ final class NetworkModule: NetworkDelegate {
                     response.statusCode == self.codes.badRequest { // если 400 или 404 сразу отправляем ошибку
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
-                } else {  // иначе кастим юзера
+                } else {
                     self.setToken(response: response)
                     let decoder = JSONDecoder()
                     do {
@@ -96,7 +96,7 @@ final class NetworkModule: NetworkDelegate {
                 if response.statusCode == self.codes.badRequest { // если 400 сразу отправляем ошибку
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
-                } else {  // иначе кастим юзера
+                } else {
                     self.setToken(response: response)
                     let tmpUser = User(login: login, email: email, name: nil, surname: nil, password: password)
                     completion(.success(tmpUser))
@@ -107,9 +107,9 @@ final class NetworkModule: NetworkDelegate {
     
     private func setToken(response: HTTPURLResponse) {
         print("setting...")
-        self.token = response.allHeaderFields["token"] as? String ?? ""
-        UserDefaults.standard.set(self.token, forKey: networkKeyString)
-        UserDefaults.standard.synchronize()
-        print("setted")
+        self.token = response.allHeaderFields["Authorize"] as! String
+        print(token)
+        UserDefaults.standard.setValue(self.token, forKey: networkKeyString)
+        print(UserDefaults.standard.value(forKey: networkKeyString))
     }
 }

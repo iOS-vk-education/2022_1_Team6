@@ -15,8 +15,23 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9t-1S-ckM">
+                                <rect key="frame" x="163" y="722" width="89" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="CLICK ME"/>
+                                <connections>
+                                    <action selector="DidPressLogoutBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="yhV-x5-2tY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="q9t-1S-ckM" secondAttribute="bottom" constant="109" id="3it-C4-bT8"/>
+                            <constraint firstItem="q9t-1S-ckM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="163" id="Vc9-eY-YpN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q9t-1S-ckM" secondAttribute="trailing" constant="162" id="hBY-qw-MZm"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="settingsView" destination="5EZ-qb-Rvc" id="DMe-PP-ajo"/>

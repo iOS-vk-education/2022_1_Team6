@@ -20,6 +20,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AppUtility.lockOrientation(.portrait)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         loginPresenter.checkToken()
     }
     
@@ -30,7 +33,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     @IBAction func DidPressLoginButton(_ sender: Any) {
         let login = LoginInput.text
         let password = PasswordInput.text
-        print(UserDefaults.standard.value(forKey: networkKeyString))
         if let log = login, let pass = password {
             loginPresenter.loginPressed(login: log, password: pass)
         }
@@ -58,17 +60,19 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     func loginSuccess() {
         ValidationHint.isHidden = true
         print("...loging")
-        self.goToMonthView()
+        self.goToMonthView(isLogged: false)
     }
     
     func logged() {
-        self.goToMonthView()
+        print("...logged")
+        self.goToMonthView(isLogged: true)
     }
     
-    private func goToMonthView() {
+    private func goToMonthView(isLogged: Bool) {
         let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.month, bundle:nil)
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.month)
         resultViewController.modalPresentationStyle = .fullScreen
-        self.present(resultViewController, animated:true, completion:nil)
+        self.present(resultViewController, animated: !isLogged, completion:nil)
+        print("huh")
     }
 }
