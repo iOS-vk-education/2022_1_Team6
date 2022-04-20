@@ -12,6 +12,9 @@ class SettingViewController: UIViewController, SettingsViewDelegate {
     @IBOutlet weak var UsernameInput: UITextField!
     @IBOutlet weak var NameInput: UITextField!
     @IBOutlet weak var SurnameInput: UITextField!
+    @IBOutlet weak var PushLabel: UILabel!
+    @IBOutlet weak var PushSlider: UISwitch!
+    
     private let settingsPresenter = SettingsPresenter()
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
@@ -24,10 +27,17 @@ class SettingViewController: UIViewController, SettingsViewDelegate {
         super.viewDidLoad()
         self.settingsPresenter.setSettingsViewDelegate(settingsDelegate: self)
         self.settingsPresenter.getUserData()
+        self.PushLabel.layer.masksToBounds = true
+        self.PushLabel.layer.cornerRadius = 8
     }
+    
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
         return false
+    }
+    
+    @IBAction func SwitchChanged(_ sender: Any) {
+        print(self.PushSlider.isOn)
     }
     
     func goToLoginView() {
