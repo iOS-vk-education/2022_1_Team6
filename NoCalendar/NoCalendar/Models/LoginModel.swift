@@ -6,11 +6,9 @@ class LoginModel {
         if login.count < 5 {
             return loginErrors.shortUsername
         }
-        
         if password.count < 5 {
             return loginErrors.shortPassword
         }
-        
         return loginErrors.noError
     }
     
@@ -40,7 +38,6 @@ class LoginModel {
     
     func isTokenPresent() -> Bool {
         let token = UserDefaults.standard.string(forKey: networkKeyString)
-        print("token= ", token)
         if token != nil {
             return true
         } else {

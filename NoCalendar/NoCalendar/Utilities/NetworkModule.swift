@@ -106,10 +106,9 @@ final class NetworkModule: NetworkDelegate {
     }
     
     private func setToken(response: HTTPURLResponse) {
-        print("setting...")
         self.token = response.allHeaderFields["Authorize"] as! String
-        print(token)
-        UserDefaults.standard.setValue(self.token, forKey: networkKeyString)
-        print(UserDefaults.standard.value(forKey: networkKeyString))
+        if token != "" {
+            UserDefaults.standard.setValue(self.token, forKey: networkKeyString)
+        }
     }
 }

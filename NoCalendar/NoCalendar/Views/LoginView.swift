@@ -40,10 +40,8 @@ class LoginViewController: UIViewController, LoginViewDelegate {
     
     func loginValidate(errorCode: loginErrors) {
         switch errorCode {
-        case .noError:
-            break
         case .shortUsername:
-            ValidationHint.text = "Невалидный email"
+            ValidationHint.text = "Невалидный логин"
             ValidationHint.isHidden = false
         case .shortPassword:
             ValidationHint.text = "Невалидный пароль"
@@ -53,6 +51,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
             ValidationHint.isHidden = false
         case .passwordMismatch:
             ValidationHint.text = "Неверный пароль"
+            ValidationHint.isHidden = false
+        default:
+            ValidationHint.text = "Сетевая ошибка"
             ValidationHint.isHidden = false
         }
     }
@@ -73,6 +74,5 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.month)
         resultViewController.modalPresentationStyle = .fullScreen
         self.present(resultViewController, animated: !isLogged, completion:nil)
-        print("huh")
     }
 }

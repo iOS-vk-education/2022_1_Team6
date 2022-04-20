@@ -10,6 +10,8 @@ import RealmSwift
 
 protocol DatabaseDelegate {
     func saveUser(user: User)
+    func deleteUser()
+    func getUser() -> UserEmbeded?
 }
 
 final class DatabaseModule : DatabaseDelegate {
@@ -26,5 +28,20 @@ final class DatabaseModule : DatabaseDelegate {
             newUser.surname = user.surname
             realm.add(newUser)
         }
+    }
+    
+    func deleteUser() {
+        let realm = try! Realm()
+        try! realm.write {
+            let user = realm.objects(UserEmbeded.self)
+            realm.delete(user)
+        }
+    }
+    
+    func getUser() -> UserEmbeded? {
+        let realm = try! Realm()
+        let user = realm.objects(UserEmbeded.self)
+        let unpackedUser = user.first
+        return unpackedUser
     }
 }
