@@ -44,7 +44,7 @@ class SignUpModel {
                     case self.codes.badRequest:
                         failCallBack?(RegErrors.userExist)
                     default:
-                        failCallBack?(RegErrors.invalidEmail)
+                        failCallBack?(RegErrors.noConnection)
                     }
                 }
             }

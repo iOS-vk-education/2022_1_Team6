@@ -52,6 +52,9 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         case .passwordMismatch:
             ValidationHint.text = "Неверный пароль"
             ValidationHint.isHidden = false
+        case .noConnection:
+            ValidationHint.text = "Нет соединения с интернетом"
+            ValidationHint.isHidden = false
         default:
             ValidationHint.text = "Сетевая ошибка"
             ValidationHint.isHidden = false

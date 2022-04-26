@@ -29,7 +29,7 @@ class LoginModel {
                     case self.codes.badRequest:
                         failCallBack?(loginErrors.passwordMismatch)
                     default:
-                        failCallBack?(loginErrors.noSuchUser)
+                        failCallBack?(loginErrors.noConnection)
                     }
                 }
             }

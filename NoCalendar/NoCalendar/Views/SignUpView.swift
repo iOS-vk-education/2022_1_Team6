@@ -56,6 +56,9 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
         case .userExist:
             ErrorLabel.text = "Такой пользователь существует"
             ErrorLabel.isHidden = false
+        case .noConnection:
+            ErrorLabel.text = "Нет соединения с интернетом"
+            ErrorLabel.isHidden = false
         default:
             ErrorLabel.isHidden = true
         }

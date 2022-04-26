@@ -13,6 +13,7 @@ enum loginErrors {
     case shortPassword
     case noSuchUser
     case passwordMismatch
+    case noConnection
 }
 
 enum RegErrors {
@@ -22,6 +23,7 @@ enum RegErrors {
     case invalidEmail
     case passwordMismatch
     case userExist
+    case noConnection
 }
 
 struct StoryBoardsNames {

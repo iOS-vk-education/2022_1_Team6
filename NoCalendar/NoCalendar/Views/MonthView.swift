@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import FSCalendar
 
-class MonthViewController: UIViewController, MonthViewDelegate {
+class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     @IBOutlet var MonthView: UIView!
+    @IBOutlet weak var Calendar: FSCalendar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("alive and kicking x2")
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
