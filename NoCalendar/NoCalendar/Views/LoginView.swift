@@ -1,6 +1,6 @@
 import UIKit
 
-class LoginViewController: UIViewController, LoginViewDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDelegate {
     @IBOutlet var LoginView: UIView!
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var LoginInput: UITextField!
@@ -15,6 +15,23 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         super.viewDidLoad()
         ValidationHint.isHidden = true
         loginPresenter.setloginViewDelegate(loginDelegate: self)
+        self.LoginInput.delegate = self
+        self.LoginInput.tag = 0
+        self.PasswordInput.delegate = self
+        self.PasswordInput.tag = 1
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       // Try to find next responder
+       if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+          nextField.becomeFirstResponder()
+       } else {
+          // Not found, so remove keyboard.
+          textField.resignFirstResponder()
+          self.DidPressLoginButton(self)
+       }
+       // Do not add a line break
+       return false
     }
     
     override func viewWillAppear(_ animated: Bool) {

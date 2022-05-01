@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JY-S6-n31">
-                                <rect key="frame" x="22.666666666666657" y="326" width="345" height="48"/>
+                                <rect key="frame" x="22.666666666666657" y="320" width="345" height="48"/>
                                 <string key="text">Некалендарь - приложение, которое 
 поможет вам отслеживать свои дела</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -44,12 +44,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZd-32-JX9">
-                                <rect key="frame" x="47" y="499" width="296" height="34"/>
+                                <rect key="frame" x="47" y="485" width="296" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Ohw-UN-ihz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9E-pX-t85">
                                 <rect key="frame" x="55" y="615.33333333333337" width="280" height="40"/>
@@ -81,17 +81,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
-                                <rect key="frame" x="47" y="427" width="296" height="34"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Bo-Jck">
+                                <rect key="frame" x="47" y="421" width="296" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="p2C-g4-IA5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ошибка в логине " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY2-db-Jcm">
-                                <rect key="frame" x="106.66666666666669" y="376" width="177" height="50"/>
+                                <rect key="frame" x="106.66666666666669" y="357" width="177" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
@@ -126,18 +125,18 @@
                         <color key="tintColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="rVv-eX-DQV" firstAttribute="top" secondItem="x9E-pX-t85" secondAttribute="bottom" constant="40" id="2gY-04-8hz"/>
-                            <constraint firstItem="1k8-Bo-Jck" firstAttribute="firstBaseline" secondItem="lY2-db-Jcm" secondAttribute="baseline" constant="32" symbolType="layoutAnchor" id="5tK-iX-axd"/>
-                            <constraint firstItem="lY2-db-Jcm" firstAttribute="firstBaseline" secondItem="2JY-S6-n31" secondAttribute="baseline" constant="28" symbolType="layoutAnchor" id="6Kt-iD-fMd"/>
+                            <constraint firstItem="1k8-Bo-Jck" firstAttribute="firstBaseline" secondItem="lY2-db-Jcm" secondAttribute="baseline" constant="15" id="5tK-iX-axd"/>
+                            <constraint firstItem="lY2-db-Jcm" firstAttribute="firstBaseline" secondItem="2JY-S6-n31" secondAttribute="baseline" constant="15" id="6Kt-iD-fMd"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="6pi-5z-uni"/>
                             <constraint firstItem="x9E-pX-t85" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="Brm-kq-OAd"/>
                             <constraint firstItem="1k8-Bo-Jck" firstAttribute="leading" secondItem="wNT-Hi-6so" secondAttribute="leading" constant="47" id="EGg-Ep-dnU"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="centerX" secondItem="mlF-PZ-A3c" secondAttribute="centerX" id="FGd-ND-pUO"/>
                             <constraint firstItem="mlF-PZ-A3c" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="H94-nV-gLO"/>
-                            <constraint firstItem="dZd-32-JX9" firstAttribute="top" secondItem="1k8-Bo-Jck" secondAttribute="bottom" constant="38" id="Im2-7F-08L"/>
+                            <constraint firstItem="dZd-32-JX9" firstAttribute="top" secondItem="1k8-Bo-Jck" secondAttribute="bottom" constant="30" id="Im2-7F-08L"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="LAR-lU-UjG"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="W6T-D7-fVr"/>
                             <constraint firstItem="2JY-S6-n31" firstAttribute="centerX" secondItem="mlF-PZ-A3c" secondAttribute="centerX" id="XZe-Ca-Ys2"/>
-                            <constraint firstItem="2JY-S6-n31" firstAttribute="top" secondItem="mlF-PZ-A3c" secondAttribute="bottom" constant="31" id="Xty-Pr-RX2"/>
+                            <constraint firstItem="2JY-S6-n31" firstAttribute="top" secondItem="mlF-PZ-A3c" secondAttribute="bottom" constant="25" id="Xty-Pr-RX2"/>
                             <constraint firstItem="wNT-Hi-6so" firstAttribute="trailing" secondItem="dZd-32-JX9" secondAttribute="trailing" constant="47" id="YQv-lq-QVa"/>
                             <constraint firstItem="lY2-db-Jcm" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="clh-o8-SvR"/>
                             <constraint firstItem="1k8-Bo-Jck" firstAttribute="height" secondItem="dZd-32-JX9" secondAttribute="height" id="eem-uf-uuk"/>
@@ -177,9 +176,6 @@
         <image name="logo" width="600" height="600"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
