@@ -26,6 +26,12 @@ enum RegErrors {
     case noConnection
 }
 
+enum EventErrors {
+    case noError
+    case notAuthorised
+    case noConnection
+}
+
 struct StoryBoardsNames {
     let login = "Main"
     let signup = "SignUp"
@@ -47,6 +53,7 @@ struct UiControllerNames {
 struct statusCodes {
     let ok = 200
     let badRequest = 400
+    let unauthorized = 401
     let notFound = 404
 }
 

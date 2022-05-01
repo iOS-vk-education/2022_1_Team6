@@ -28,7 +28,25 @@
 		<key>NoCalendar.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FC4FA78727FA157700483FEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC4FA79D27FA157800483FEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC4FA7A727FA157800483FEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
