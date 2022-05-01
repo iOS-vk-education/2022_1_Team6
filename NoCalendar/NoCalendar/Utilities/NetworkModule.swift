@@ -20,11 +20,14 @@ enum NetworkError: Error {
 
 
 final class NetworkModule: NetworkDelegate {
-    private init() {}
     static let shared: NetworkDelegate = NetworkModule()
     private var endpoint = "http://89.19.190.83/api/"
     private let codes = statusCodes()
-    private var token = ""
+    private var token: String
+    
+    private init() {
+        self.token = DatabaseModule.shared.getToken()
+    }
     
     func authorise(login: String, password: String,
                    completion: @escaping (Result<User, Error>) -> Void) {
@@ -110,6 +113,7 @@ final class NetworkModule: NetworkDelegate {
         let url = URL(string: endpoint + "event/all")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
         
         // insert json data to the request
 
@@ -131,9 +135,7 @@ final class NetworkModule: NetworkDelegate {
                 } else {
                     let decoder = JSONDecoder()
                     do {
-                        print(response)
                         let evResponse = try decoder.decode(serverEventsResponse.self, from: data)
-                        print(evResponse)
                         completion(.success(evResponse.events))
                     } catch let error {
                         completion(.failure(error))

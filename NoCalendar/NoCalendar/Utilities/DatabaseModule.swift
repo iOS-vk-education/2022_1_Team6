@@ -12,6 +12,7 @@ protocol DatabaseDelegate {
     func saveUser(user: User)
     func deleteUser()
     func getUser() -> UserEmbeded?
+    func getToken() -> String
     func getEvents() -> Array<EventEmbeded>
     func saveEvents(events: Array<Event>)
 }
@@ -69,5 +70,9 @@ final class DatabaseModule : DatabaseDelegate {
             }
             realm.add(eventsArray)
         }
+    }
+    
+    func getToken() -> String {
+        return UserDefaults.standard.string(forKey: networkKeyString) ?? ""
     }
 }

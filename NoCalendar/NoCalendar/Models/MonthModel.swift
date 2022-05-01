@@ -40,8 +40,8 @@ class MonthModel {
                 DispatchQueue.main.async {
                     let err = error as NSError
                     switch err.code {
-//                    case self.codes.unauthorized:
-//                        failCallBack?(EventErrors.notAuthorised)
+                    case self.codes.unauthorized:
+                        failCallBack?(EventErrors.notAuthorised)
                     default:
                         failCallBack?(EventErrors.noConnection)
                     }
