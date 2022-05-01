@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, SignUpViewDelegate {
+class SignUpViewController: UIViewController, UITextFieldDelegate, SignUpViewDelegate {
     @IBOutlet var SignUpView: UIView!
     @IBOutlet weak var ErrorLabel: UILabel!
     @IBOutlet weak var RegBtn: UIButton!
@@ -20,7 +20,38 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
     
-    @IBAction func DidPressRegBtn(_ sender: UIButton) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ErrorLabel.isHidden = true
+        signupPresenter.setsignupViewDelegate(signupDelegate: self)
+        self.EmailInput.delegate = self
+        self.EmailInput.tag = 0
+        self.LoginInput.delegate = self
+        self.LoginInput.tag = 1
+        self.PasswordInput.delegate = self
+        self.PasswordInput.tag = 2
+        self.PasswordRepInput.delegate = self
+        self.PasswordRepInput.tag = 3
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+       // Try to find next responder
+       if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+          nextField.becomeFirstResponder()
+       } else {
+          // Not found, so remove keyboard.
+          textField.resignFirstResponder()
+          self.DidPressRegBtn(self)
+       }
+       // Do not add a line break
+       return false
+    }
+    
+    override func shouldAutomaticallyForwardRotationMethods() -> Bool {
+        return false
+    }
+    
+    @IBAction func DidPressRegBtn(_ sender: Any) {
         let email = EmailInput.text
         let login = LoginInput.text
         let password = PasswordInput.text
@@ -28,15 +59,6 @@ class SignUpViewController: UIViewController, SignUpViewDelegate {
         if let l = login, let p = password, let e = email, let pr = passwordRep {
             signupPresenter.regPressed(login: l, email: e, password: p, passwordRepeat: pr)
         }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ErrorLabel.isHidden = true
-        signupPresenter.setsignupViewDelegate(signupDelegate: self)
-    }
-    
-    override func shouldAutomaticallyForwardRotationMethods() -> Bool {
-        return false
     }
     
     func regValidate(errorCode: RegErrors) {

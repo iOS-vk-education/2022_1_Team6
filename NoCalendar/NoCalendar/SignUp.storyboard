@@ -55,7 +55,7 @@
                                     <constraint firstAttribute="height" constant="38" id="7j1-xv-joD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Имя пользователя" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sys-a6-zFe">
                                 <rect key="frame" x="47" y="411" width="237" height="38"/>
@@ -64,7 +64,7 @@
                                     <constraint firstAttribute="height" constant="38" id="guU-M7-vp0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lqR-og-q9f">
                                 <rect key="frame" x="47" y="343" width="237" height="38"/>
@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="38" id="afj-Qn-FuR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register" id="Oc1-9c-mOd">
                                 <rect key="frame" x="82" y="62" width="226" height="188"/>
@@ -103,7 +103,7 @@
                                     <constraint firstAttribute="height" constant="38" id="vZZ-rx-bpl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlS-F2-bAY">
                                 <rect key="frame" x="25.666666666666657" y="615" width="280" height="40"/>
@@ -161,8 +161,8 @@
                         <outlet property="EmailInput" destination="lqR-og-q9f" id="nBj-Cx-nm2"/>
                         <outlet property="ErrorLabel" destination="uSb-JX-OaT" id="QOu-dO-4Sb"/>
                         <outlet property="LoginInput" destination="Sys-a6-zFe" id="TID-DF-Dq9"/>
-                        <outlet property="PasswordInput" destination="Fz6-CU-Ywy" id="DIS-vM-emT"/>
-                        <outlet property="PasswordRepInput" destination="Fz6-CU-Ywy" id="s79-DC-rTF"/>
+                        <outlet property="PasswordInput" destination="WF1-wK-CGc" id="Fuv-vw-9or"/>
+                        <outlet property="PasswordRepInput" destination="Fz6-CU-Ywy" id="84I-aQ-sXg"/>
                         <outlet property="RegBtn" destination="WlS-F2-bAY" id="GOT-mT-XOF"/>
                         <outlet property="SignUpView" destination="HoJ-gC-SLC" id="khe-OI-ZTy"/>
                     </connections>
