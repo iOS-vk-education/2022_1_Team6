@@ -13,10 +13,10 @@ struct Event : Codable {
     let title: String
     let description: String
     let timestamp: Int64
-    let members: List<String>
+    let members: List<String>?
     let author: String
-    let activeMembers: [String]
-    let isRegular: Bool
+    let activeMembers: [String]?
+    let isRegular: Bool?
     let Delta: Int64?
 }
 

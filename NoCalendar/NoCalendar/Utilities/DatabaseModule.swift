@@ -62,7 +62,7 @@ final class DatabaseModule : DatabaseDelegate {
                 let newEvent = EventEmbeded()
                 newEvent.author = event.author
                 newEvent.desc = event.description
-                newEvent.members = event.members
+                newEvent.members = event.members ?? List()
                 newEvent.id = event.id
                 newEvent.timestamp = event.timestamp
                 newEvent.title = event.title

@@ -25,12 +25,9 @@ class MonthModel {
     }
     
     func getEvents(okCallback: (() -> Void)? = nil, failCallBack: ((EventErrors) -> Void)? = nil) {
-        print("KKEKEKEKEKE")
         NetworkModule.shared.getAllEvents(completion: { [] result in
             switch result {
             case .success(let eventArray):
-                print("AZAZAAZA")
-                print(eventArray, "\n\n", eventArray.count)
                 DatabaseModule.shared.saveEvents(events: eventArray)
                 self.useSavedData()
                 DispatchQueue.main.async {

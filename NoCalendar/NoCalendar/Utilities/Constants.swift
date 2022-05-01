@@ -37,7 +37,7 @@ struct StoryBoardsNames {
     let signup = "SignUp"
     let month = "Month"
     let settings = "Settings"
-    let day = "Day"
+    let day = "SingleDay"
     let event = "Event"
 }
 
@@ -46,7 +46,7 @@ struct UiControllerNames {
     let signup = "Signup"
     let month = "Month"
     let settings = "Settings"
-    let day = "Day"
+    let day = "SingleDay"
     let event = "Event"
 }
 

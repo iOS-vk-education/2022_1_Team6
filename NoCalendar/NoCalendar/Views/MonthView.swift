@@ -20,10 +20,10 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
         super.viewDidLoad()
         self.monthPresenter.setMonthViewDelegate(monthView: self)
         self.monthPresenter.getEvents()
+        self.calendar.delegate = self
         calendar.scrollDirection = .vertical
         calendar.appearance.headerDateFormat = "MMMM yyyy"
-        calendar.locale = NSLocale.init(localeIdentifier: "ru_RU") as Locale
-    }
+        calendar.locale = NSLocale.init(localeIdentifier: "ru_RU") as Locale    }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
         return false
@@ -37,6 +37,11 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
             """
     }
     
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(date)
+        self.goToDayContoller(date: date)
+    }
+    
     func notAuthorised() {
         self.goToLogin()
     }
@@ -47,4 +52,13 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
         resultViewController.modalPresentationStyle = .fullScreen
         self.present(resultViewController, animated: false, completion:nil)
     }
+    
+    private func goToDayContoller(date: Date) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.day, bundle:nil)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.day) as! SingleDayViewController
+        resultViewController.modalPresentationStyle = .fullScreen
+        resultViewController.setDate(newDate: date)
+        self.present(resultViewController, animated: true, completion:nil)
+    }
+    
 }

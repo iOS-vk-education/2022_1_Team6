@@ -29,12 +29,20 @@
 		FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F627FC6876000DFC1D /* LoginModel.swift */; };
 		FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */; };
 		FC74AC622817E511008FA4C8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FC74AC612817E511008FA4C8 /* FSCalendar */; };
+		FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */; };
+		FCA8771E281EF8DE00B23CD6 /* SingleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */; };
+		FCA87722281EF9B700B23CD6 /* SingleDayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */; };
+		FCA87724281EF9C800B23CD6 /* SingleDayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87723281EF9C800B23CD6 /* SingleDayModel.swift */; };
+		FCA87726281F315000B23CD6 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA87725281F315000B23CD6 /* Event.storyboard */; };
+		FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87727281F3A6000B23CD6 /* EventView.swift */; };
+		FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */; };
+		FCA8772C281F3A9000B23CD6 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8772B281F3A9000B23CD6 /* EventModel.swift */; };
 		FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FC280C2C4C0033A055 /* Constants.swift */; };
 		FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FE280C35920033A055 /* SignUpView.swift */; };
 		FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC900280C35A00033A055 /* SignUpPresenter.swift */; };
 		FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC902280C35CC0033A055 /* SignUpModel.swift */; };
-		FCBAC90C280C74350033A055 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90B280C74350033A055 /* UserModel.swift */; };
-		FCBAC90E280C76B90033A055 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90D280C76B90033A055 /* EventModel.swift */; };
+		FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90B280C74350033A055 /* UserTypes.swift */; };
+		FCBAC90E280C76B90033A055 /* EventTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90D280C76B90033A055 /* EventTypes.swift */; };
 		FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC915280C802F0033A055 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,12 +85,20 @@
 		FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FC6EE1F627FC6876000DFC1D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleDay.storyboard; sourceTree = "<group>"; };
+		FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayView.swift; sourceTree = "<group>"; };
+		FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayPresenter.swift; sourceTree = "<group>"; };
+		FCA87723281EF9C800B23CD6 /* SingleDayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayModel.swift; sourceTree = "<group>"; };
+		FCA87725281F315000B23CD6 /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		FCA87727281F3A6000B23CD6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
+		FCA8772B281F3A9000B23CD6 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		FCBAC8FC280C2C4C0033A055 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCBAC8FE280C35920033A055 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FCBAC900280C35A00033A055 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		FCBAC902280C35CC0033A055 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		FCBAC90B280C74350033A055 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
-		FCBAC90D280C76B90033A055 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FCBAC90B280C74350033A055 /* UserTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypes.swift; sourceTree = "<group>"; };
+		FCBAC90D280C76B90033A055 /* EventTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypes.swift; sourceTree = "<group>"; };
 		FCBAC915280C802F0033A055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCBAC917280C80560033A055 /* Month.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Month.storyboard; sourceTree = "<group>"; };
 		FCBAC918280C80570033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
@@ -151,6 +167,8 @@
 				FCBAC917280C80560033A055 /* Month.storyboard */,
 				FC3FD9CE280C83170057DBAB /* Settings.storyboard */,
 				FCBAC918280C80570033A055 /* SignUp.storyboard */,
+				FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */,
+				FCA87725281F315000B23CD6 /* Event.storyboard */,
 			);
 			path = NoCalendar;
 			sourceTree = "<group>";
@@ -173,6 +191,8 @@
 				FCBAC8FE280C35920033A055 /* SignUpView.swift */,
 				FC3FD9D0280C841C0057DBAB /* MonthView.swift */,
 				FC3FD9D8280C856C0057DBAB /* SettingsView.swift */,
+				FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */,
+				FCA87727281F3A6000B23CD6 /* EventView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +204,8 @@
 				FCBAC900280C35A00033A055 /* SignUpPresenter.swift */,
 				FC3FD9D2280C84360057DBAB /* MonthPresenter.swift */,
 				FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */,
+				FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */,
+				FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -195,6 +217,8 @@
 				FCBAC902280C35CC0033A055 /* SignUpModel.swift */,
 				FC3FD9D4280C846F0057DBAB /* SettingsModel.swift */,
 				FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */,
+				FCA87723281EF9C800B23CD6 /* SingleDayModel.swift */,
+				FCA8772B281F3A9000B23CD6 /* EventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,8 +226,8 @@
 		FCBAC90A280C741D0033A055 /* ObjectModels */ = {
 			isa = PBXGroup;
 			children = (
-				FCBAC90B280C74350033A055 /* UserModel.swift */,
-				FCBAC90D280C76B90033A055 /* EventModel.swift */,
+				FCBAC90B280C74350033A055 /* UserTypes.swift */,
+				FCBAC90D280C76B90033A055 /* EventTypes.swift */,
 			);
 			path = ObjectModels;
 			sourceTree = "<group>";
@@ -322,7 +346,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */,
+				FCA87726281F315000B23CD6 /* Event.storyboard in Resources */,
 				FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */,
+				FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */,
 				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CF280C83170057DBAB /* Settings.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
@@ -354,23 +380,29 @@
 				FC3FD9D1280C841C0057DBAB /* MonthView.swift in Sources */,
 				FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */,
 				FC3FD9D7280C84AB0057DBAB /* MonthModel.swift in Sources */,
+				FCA8771E281EF8DE00B23CD6 /* SingleDayView.swift in Sources */,
 				FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */,
-				FCBAC90E280C76B90033A055 /* EventModel.swift in Sources */,
+				FCBAC90E280C76B90033A055 /* EventTypes.swift in Sources */,
 				FC3FD9DB280C85780057DBAB /* SettingsPresenter.swift in Sources */,
+				FCA87722281EF9B700B23CD6 /* SingleDayPresenter.swift in Sources */,
+				FCA8772C281F3A9000B23CD6 /* EventModel.swift in Sources */,
 				FC3FD9D9280C856C0057DBAB /* SettingsView.swift in Sources */,
+				FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */,
 				FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */,
 				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
 				FC3FD9D3280C84360057DBAB /* MonthPresenter.swift in Sources */,
 				FC3FD9D5280C846F0057DBAB /* SettingsModel.swift in Sources */,
 				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
+				FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */,
 				FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */,
+				FCA87724281EF9C800B23CD6 /* SingleDayModel.swift in Sources */,
 				FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */,
 				FCBAC903280C35CC0033A055 /* SignUpModel.swift in Sources */,
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
 				FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */,
-				FCBAC90C280C74350033A055 /* UserModel.swift in Sources */,
+				FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
