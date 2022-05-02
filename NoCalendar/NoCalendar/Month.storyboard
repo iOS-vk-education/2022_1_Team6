@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8y-bF-EII">
-                                <rect key="frame" x="238" y="740" width="132" height="38"/>
+                                <rect key="frame" x="238" y="742" width="132" height="38"/>
                                 <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
@@ -29,16 +29,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-Go-Yz3">
-                                <rect key="frame" x="20" y="740" width="107" height="38"/>
+                                <rect key="frame" x="20" y="742" width="107" height="38"/>
                                 <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Сегодня">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="OnTodayButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u1R-pY-QHt"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B33-w5-bIO" customClass="FSCalendar">
-                                <rect key="frame" x="16" y="114" width="358" height="618"/>
+                                <rect key="frame" x="16" y="104" width="358" height="608"/>
                                 <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -103,6 +106,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="titleTextSize">
                                         <real key="value" value="21"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="eventDefaultColor">
+                                        <color key="value" systemColor="systemMintColor"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="qSm-YQ-as0"/>
@@ -120,14 +126,14 @@
                         <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="B33-w5-bIO" secondAttribute="trailing" constant="16" id="2aC-Wl-lsl"/>
-                            <constraint firstItem="B33-w5-bIO" firstAttribute="top" secondItem="5u6-5J-eSN" secondAttribute="bottom" constant="20" id="3T8-o5-bva"/>
-                            <constraint firstItem="A8y-bF-EII" firstAttribute="top" secondItem="B33-w5-bIO" secondAttribute="bottom" constant="8" symbolic="YES" id="BuT-xJ-lN9"/>
+                            <constraint firstItem="B33-w5-bIO" firstAttribute="top" secondItem="5u6-5J-eSN" secondAttribute="bottom" constant="10" id="3T8-o5-bva"/>
                             <constraint firstItem="5u6-5J-eSN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="X23-Nu-M7M"/>
                             <constraint firstItem="eXm-Go-Yz3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ezw-07-Nnb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="A8y-bF-EII" secondAttribute="trailing" constant="20" id="fhy-kP-yzT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="A8y-bF-EII" secondAttribute="bottom" constant="32" id="ieZ-1D-19m"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="A8y-bF-EII" secondAttribute="bottom" constant="30" id="ieZ-1D-19m"/>
                             <constraint firstItem="5u6-5J-eSN" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="n1d-xH-SMj"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eXm-Go-Yz3" secondAttribute="bottom" constant="32" id="s6p-Uz-TJt"/>
+                            <constraint firstItem="A8y-bF-EII" firstAttribute="top" secondItem="B33-w5-bIO" secondAttribute="bottom" constant="30" id="pAK-Mb-0R9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eXm-Go-Yz3" secondAttribute="bottom" constant="30" id="s6p-Uz-TJt"/>
                             <constraint firstItem="B33-w5-bIO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="t65-M8-AwZ"/>
                         </constraints>
                     </view>
@@ -155,6 +161,9 @@
     <resources>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

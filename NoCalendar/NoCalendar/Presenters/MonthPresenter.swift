@@ -10,6 +10,7 @@ import Foundation
 protocol MonthViewDelegate: NSObjectProtocol {
     func setHeader(username: String, active: Int)
     func notAuthorised()
+    func setActiveEvents(activeEventsDates: [Date])
 }
 
 class MonthPresenter {
@@ -24,14 +25,24 @@ class MonthPresenter {
         self.monthDelegate = monthView;
     }
     
-    func getHeader() {
-        let headerInfo = self.monthModel.getHeaderInfo()
-        print(headerInfo)
-        monthDelegate?.setHeader(username: headerInfo.0, active: headerInfo.1)
-    }
     
     func getEvents(okCallback: (() -> Void)? = nil, failCallBack: ((loginErrors) -> Void)? = nil) {
-        self.monthModel.getEvents(okCallback: self.getHeader, failCallBack: self.handleErrors)
+        self.monthModel.getEvents(okCallback: self.getInfo, failCallBack: self.handleErrors)
+    }
+    
+    func getInfo() {
+        self.getHeader()
+        self.getActiveEvents()
+    }
+    
+    func getActiveEvents() {
+        let activeEventsDate = self.monthModel.getActiveEvents()
+        monthDelegate?.setActiveEvents(activeEventsDates: activeEventsDate)
+    }
+    
+    func getHeader() {
+        let headerInfo = self.monthModel.getHeaderInfo()
+        monthDelegate?.setHeader(username: headerInfo.0, active: headerInfo.1)
     }
     
     func handleErrors(eventErros: EventErrors) {
