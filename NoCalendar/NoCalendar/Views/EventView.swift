@@ -18,6 +18,10 @@ class EventViewContoller: UIViewController, EventDelegate {
         self.eventPresenter.setEventDelegate(delegate: self)
     }
     
+    @IBAction func DidPressCancelButton(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
         return false
     }

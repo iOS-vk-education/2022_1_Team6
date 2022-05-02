@@ -56,3 +56,9 @@ struct serverEvent: Codable {
     let meta: Event
     let actual: Event
 }
+
+struct singleDayTimeAndEvent {
+    let time: String
+    let eventName: String
+    let eventId: String
+}
