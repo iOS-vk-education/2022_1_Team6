@@ -58,7 +58,7 @@ struct serverEvent: Codable {
 }
 
 struct singleDayTimeAndEvent {
-    let time: String
-    let eventName: String
-    let eventId: String
+    var time: String
+    var eventName: String
+    var eventId: String
 }

@@ -29,6 +29,7 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool){
         self.setDateLabel(newDate: self.date)
+        self.singleDayPresenter.getThisDayEvents(day: self.date)
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
@@ -37,6 +38,22 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
     
     func setDate(newDate: Date) {
         self.date = newDate
+    }
+    
+    func setEvents(events: [EventEmbeded]) {
+        for event in events {
+            let eventDate = Date(timeIntervalSince1970: TimeInterval(event.timestamp))
+            let hour = Calendar.current.component(.hour, from: eventDate)
+            print(hour)
+            if let index = self.data.firstIndex(where: {
+                $0.time == "\(hour):00" || $0.time == "0\(hour):00"
+                
+            }) {
+                self.data[index].eventName = event.title
+            }
+        }
+        print(self.data)
+        self.table.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
