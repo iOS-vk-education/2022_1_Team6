@@ -10,7 +10,7 @@ import Foundation
 protocol NetworkDelegate {
     func authorise(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func register(login: String, email:String, password: String, completion: @escaping (Result<User, Error>) -> Void)
-    func getAllEvents(completion: @escaping (Result<[Event], Error>) -> Void)
+    func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -109,7 +109,7 @@ final class NetworkModule: NetworkDelegate {
         }.resume()
     }
     
-    func getAllEvents(completion: @escaping (Result<[Event], Error>) -> Void) {
+    func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void) {
         let url = URL(string: endpoint + "event/all")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -135,7 +135,6 @@ final class NetworkModule: NetworkDelegate {
                 } else {
                     let decoder = JSONDecoder()
                     do {
-                        print((String(data: data, encoding: String.Encoding.utf8) ?? ""))
                         let evResponse = try decoder.decode(serverEventsResponse.self, from: data)
                         completion(.success(evResponse.events))
                     } catch let error {
