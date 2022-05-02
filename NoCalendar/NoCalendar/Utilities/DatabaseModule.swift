@@ -63,30 +63,35 @@ final class DatabaseModule : DatabaseDelegate {
     
     func saveEvents(events: [serverEvent]) {
         let realm = try! Realm()
-        Swift.print("NINCE", events)
         try! realm.write {
+            let oldEvents = realm.objects(ServerEventEmbeded.self)
+            realm.delete(oldEvents)
             var eventsArray = [ServerEventEmbeded]()
             for event in events {
+                let actual = EventEmbeded()
+                actual.author = event.actual.author
+                actual.desc = event.actual.description
+                actual.members = event.actual.members
+                actual.id = event.actual.id
+                actual.timestamp = event.actual.timestamp
+                actual.title = event.actual.title
+                actual.active_members = event.actual.active_members
+                actual.is_regular = event.actual.is_regular
+                actual.delta = event.actual.delta
+                
+                let meta = EventEmbeded()
+                meta.author = event.meta.author
+                meta.desc = event.meta.description
+                meta.members = event.meta.members
+                meta.id = event.meta.id
+                meta.timestamp = event.meta.timestamp
+                meta.title = event.meta.title
+                meta.active_members = event.meta.active_members
+                meta.is_regular = event.meta.is_regular
+                meta.delta = event.meta.delta
                 let newEvent = ServerEventEmbeded()
-                newEvent.actual?.author = event.actual.author
-                newEvent.actual?.desc = event.actual.description
-                newEvent.actual?.members = event.actual.members
-                newEvent.actual?.id = event.actual.id
-                newEvent.actual?.timestamp = event.actual.timestamp
-                newEvent.actual?.title = event.actual.title
-                newEvent.actual?.active_members = event.actual.active_members
-                newEvent.actual?.is_regular = event.actual.is_regular
-                newEvent.actual?.delta = event.actual.delta
-
-                newEvent.meta?.author = event.meta.author
-                newEvent.meta?.desc = event.meta.description
-                newEvent.meta?.members = event.meta.members
-                newEvent.meta?.id = event.meta.id
-                newEvent.meta?.timestamp = event.meta.timestamp
-                newEvent.meta?.title = event.meta.title
-                newEvent.meta?.active_members = event.meta.active_members
-                newEvent.meta?.is_regular = event.meta.is_regular
-                newEvent.meta?.delta = event.meta.delta
+                newEvent.actual = actual
+                newEvent.meta = meta
                 eventsArray.append(newEvent)
             }
             realm.add(eventsArray)
