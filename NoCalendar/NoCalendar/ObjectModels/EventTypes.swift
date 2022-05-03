@@ -30,6 +30,11 @@ struct EventPost : Codable {
     let Delta: Int64?
 }
 
+struct EventAnswer: Codable {
+    let message: String
+    let event_id: String?
+}
+
 class EventEmbeded : Object {
     @Persisted var id = ""
     @Persisted var title = ""

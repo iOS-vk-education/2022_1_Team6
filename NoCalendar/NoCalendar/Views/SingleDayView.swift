@@ -101,7 +101,8 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
     
     private func goToEventContoller() {
         let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.event, bundle:nil)
-        let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.event)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.event) as! EventViewContoller
+        resultViewController.setDayDate(date: self.date)
         self.present(resultViewController, animated: true, completion:nil)
     }
 }

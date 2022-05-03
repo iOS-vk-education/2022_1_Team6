@@ -19,6 +19,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
         self.LoginInput.tag = 0
         self.PasswordInput.delegate = self
         self.PasswordInput.tag = 1
+        
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+
+        view.addGestureRecognizer(tap)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -32,6 +40,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
        }
        // Do not add a line break
        return false
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

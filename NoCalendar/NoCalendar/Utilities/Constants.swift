@@ -32,6 +32,13 @@ enum EventErrors {
     case noConnection
 }
 
+enum newEventErrors {
+    case noError
+    case noTitle
+    case noDate
+    case noDateAndTitle
+}
+
 struct StoryBoardsNames {
     let login = "Main"
     let signup = "SignUp"
