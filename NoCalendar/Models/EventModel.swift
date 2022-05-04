@@ -40,54 +40,89 @@ class EventModel {
         }
     }
     
-    func post(okCallback: (() -> Void)?, failCallBack: ((newEventErrors) -> Void)?) {
-        print(self.date, self.time)
+    func post(_ editMode: String, okCallback: (() -> Void)?, failCallBack: ((newEventErrors) -> Void)?) {
         let hour = Calendar.current.component(.hour, from: self.time)
-        let properDate = Calendar.current.date(byAdding: .hour, value: hour, to: self.date)
+        let minute = Calendar.current.component(.minute, from: self.time)
+        var properDate = Calendar.current.date(byAdding: .hour, value: hour, to: self.date)
+        properDate = Calendar.current.date(byAdding: .minute, value: minute, to: properDate!)
         var isRegular = false
         var delta: Int64? = nil
         if self.delta > 0 {
             isRegular = true
             delta = self.delta
         }
-        let event = EventPost(title: self.title, description: self.description, timestamp: Int64(properDate!.timeIntervalSince1970), members: self.members, isRegular: isRegular, Delta: delta)
-        print(event)
+        print(editMode, "TOKEN ID")
         
-        NetworkModule.shared.postEvent(event: event, completion: { [] result in
-            switch result {
-            case .success(let answer):
-                DispatchQueue.main.async {
-                    NetworkModule.shared.getAllEvents(completion: { [] result in
-                        switch result {
-                        case .success(let eventArray):
-                            DatabaseModule.shared.saveEvents(events: eventArray)
-                            DispatchQueue.main.async {
-                                okCallback?()
+        if editMode != "" {
+            let event = EventPostEdit(id: editMode, title: self.title, description: self.description, timestamp: Int64(properDate!.timeIntervalSince1970), members: self.members, isRegular: isRegular, Delta: delta)
+            NetworkModule.shared.updateEvent(event: event, completion: { [] result in
+                switch result {
+                case .success(let answer):
+                    DispatchQueue.main.async {
+                        NetworkModule.shared.getAllEvents(completion: { [] result in
+                            switch result {
+                            case .success(let eventArray):
+                                DatabaseModule.shared.saveEvents(events: eventArray)
+                                DispatchQueue.main.async {
+                                    okCallback?()
+                                }
+                            case .failure(let error):
+                                print("SAD :( ", error)
                             }
-                        case .failure(let error):
-                            print("SAD :( ", error)
+                        })
+                        
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let err = error as NSError
+                        print(err.code)
+                        switch err.code {
+                        case self.codes.badRequest:
+                            failCallBack?(newEventErrors.badRequest)
+                        default:
+                            failCallBack?(newEventErrors.noConnection)
                         }
-                    })
-                    
-                }
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    let err = error as NSError
-                    print(err.code)
-                    switch err.code {
-                    case self.codes.badRequest:
-                        failCallBack?(newEventErrors.badRequest)
-                    default:
-                        failCallBack?(newEventErrors.noConnection)
                     }
                 }
-            }
-        })
+            })
+        } else {
+            let event = EventPost(title: self.title, description: self.description, timestamp: Int64(properDate!.timeIntervalSince1970), members: self.members, isRegular: isRegular, Delta: delta)
+            NetworkModule.shared.postEvent(event: event, completion: { [] result in
+                switch result {
+                case .success(let answer):
+                    DispatchQueue.main.async {
+                        NetworkModule.shared.getAllEvents(completion: { [] result in
+                            switch result {
+                            case .success(let eventArray):
+                                DatabaseModule.shared.saveEvents(events: eventArray)
+                                DispatchQueue.main.async {
+                                    okCallback?()
+                                }
+                            case .failure(let error):
+                                print("SAD :( ", error)
+                            }
+                        })
+                        
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        let err = error as NSError
+                        print(err.code)
+                        switch err.code {
+                        case self.codes.badRequest:
+                            failCallBack?(newEventErrors.badRequest)
+                        default:
+                            failCallBack?(newEventErrors.noConnection)
+                        }
+                    }
+                }
+            })
+        }
     }
     
     func getEventById(_ eventId: String) -> (EventEmbeded, String) {
         let userdata = DatabaseModule.shared.getUser()
-        let eventData = DatabaseModule.shared.getEventById(Id: eventId)
+        var eventData = DatabaseModule.shared.getEventById(Id: eventId)
         return (eventData, userdata!.login)
     }
     

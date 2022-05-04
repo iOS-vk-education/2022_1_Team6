@@ -23,6 +23,14 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     private let vcNames = UiControllerNames()
     
     private let deltaData = ["Никогда", "Каждый день", "Каждую неделю", "Каждые 2 недели", "Каждый месяц"]
+    private let reverseDeltaData: [Int64: String] = [
+        0: "Никогда",
+        3600: "Каждый час",
+        86400: "Каждый день",
+        604800: "Каждую неделю",
+        2 * 604800: "Каждые 2 недели",
+        86400 * 30: "Каждый месяц" 
+    ]
     private var dayDate = Date()
     private var memberList = [String]()
     private var isEdit = false
@@ -181,9 +189,9 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     
     func fillInputsWithEvent(event: EventEmbeded, _ username: String) {
         self.titleInput.text = event.title
-        self.dateInput.text = String(event.timestamp)
+        self.dateInput.text = self.formateDate(date: Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
         self.desricptionField.text = event.desc
-        self.deltaInput.text = String(event.delta)
+        self.deltaInput.text = self.reverseDeltaData[event.delta]
         self.memberList = Array(event.members).filter {$0 != username}
         self.memberTable.reloadData()
     }
@@ -193,7 +201,7 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     }
     
     @IBAction func didPressAddButton(_ sender: Any) {
-        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", self.memberList)
+        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", self.memberList, self.eventEditId)
     }
     
     private func goToDayContoller() {

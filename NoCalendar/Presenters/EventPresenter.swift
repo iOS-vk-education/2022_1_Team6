@@ -18,6 +18,7 @@ protocol EventDelegate: NSObjectProtocol {
 class EventPresenter {
     weak private var eventDelegate: EventDelegate?
     private let eventModel = EventModel()
+    private var editId = ""
     
     init() {
         print("Hello from event presenter !")
@@ -27,13 +28,15 @@ class EventPresenter {
         self.eventDelegate = delegate;
     }
     
-    func postEvent(_ date: Date, _ title: String, _ time: String, _ delta: String, _ description: String, _ members: [String]) {
+    func postEvent(_ date: Date, _ title: String, _ time: String, _ delta: String, _ description: String, _ members: [String], _ editMode: String) {
+        self.editId = editMode
         self.eventModel.validateEvent(date, title, time, delta, description, members,  okCallback: self.eventValid, failCallBack: self.eventDelegate?.invalidEvent)
     }
     
     func eventValid() {
+        print(self.editId, "VALID")
         self.eventDelegate?.resetInvalidInputs()
-        self.eventModel.post(okCallback: self.eventDelegate?.eventPosted, failCallBack: self.eventDelegate?.notifyOfError)
+        self.eventModel.post(self.editId, okCallback: self.eventDelegate?.eventPosted, failCallBack: self.eventDelegate?.notifyOfError)
     }
     
     func fillInputs(eventId: String) {
