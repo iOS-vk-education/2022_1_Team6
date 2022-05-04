@@ -200,6 +200,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="AddButton" destination="8pa-en-Gfe" id="fd5-B0-qCg"/>
                         <outlet property="dateInput" destination="Wir-W3-hB9" id="aK4-JI-nBj"/>
                         <outlet property="deltaInput" destination="oeD-62-9gX" id="0qp-bc-P3Q"/>
                         <outlet property="desricptionField" destination="wZG-5I-fxV" id="T6s-of-teC"/>

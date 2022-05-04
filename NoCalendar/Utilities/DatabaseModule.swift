@@ -16,6 +16,7 @@ protocol DatabaseDelegate {
     func getEvents() -> Array<EventEmbeded>
     func saveEvents(events: [serverEvent])
     func getEventsInSomePeriod(from: Int64, to: Int64) -> [EventEmbeded]
+    func getEventById(Id: String) -> EventEmbeded
 }
 
 final class DatabaseModule : DatabaseDelegate {
@@ -59,6 +60,15 @@ final class DatabaseModule : DatabaseDelegate {
             }
         }
         return res
+    }
+    
+    func getEventById(Id: String) -> EventEmbeded {
+        let realm = try! Realm()
+        let events = realm.objects(ServerEventEmbeded.self)
+        let res = events.where {
+            $0.actual.id == Id
+        }
+        return (res.first?.actual)!
     }
     
     func saveEvents(events: [serverEvent]) {

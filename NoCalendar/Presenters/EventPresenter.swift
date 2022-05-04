@@ -12,6 +12,7 @@ protocol EventDelegate: NSObjectProtocol {
     func resetInvalidInputs()
     func eventPosted()
     func notifyOfError(error: newEventErrors)
+    func fillInputsWithEvent(event: EventEmbeded, _ username: String)
 }
 
 class EventPresenter {
@@ -33,6 +34,11 @@ class EventPresenter {
     func eventValid() {
         self.eventDelegate?.resetInvalidInputs()
         self.eventModel.post(okCallback: self.eventDelegate?.eventPosted, failCallBack: self.eventDelegate?.notifyOfError)
+    }
+    
+    func fillInputs(eventId: String) {
+        let Event = self.eventModel.getEventById(eventId)
+        self.eventDelegate?.fillInputsWithEvent(event: Event.0, Event.1)
     }
     
     func invalid() {

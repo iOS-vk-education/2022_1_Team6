@@ -85,6 +85,12 @@ class EventModel {
         })
     }
     
+    func getEventById(_ eventId: String) -> (EventEmbeded, String) {
+        let userdata = DatabaseModule.shared.getUser()
+        let eventData = DatabaseModule.shared.getEventById(Id: eventId)
+        return (eventData, userdata!.login)
+    }
+    
     private func saveData(_ date: Date, _ title: String, _ time: String, _ delta: String, _ description: String, _ members: [String]) {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "HH:mm"

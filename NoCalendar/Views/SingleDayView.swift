@@ -80,7 +80,9 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
     }
     
     @objc func buttonAction(sender: EventButton!) {
-        goToEventEditContoller(eventId: sender.id)
+        if sender.id != "" {
+            goToEventEditContoller(eventId: sender.id)
+        }
     }
     
     @IBAction func DidPressAddButton(_ sender: Any) {
@@ -120,6 +122,7 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
         let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.event, bundle:nil)
         let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.event) as! EventViewContoller
         resultViewController.setDayDate(date: self.date)
+        resultViewController.setEditMode(eventId: eventId)
         self.present(resultViewController, animated: true, completion:nil)
     }
 }

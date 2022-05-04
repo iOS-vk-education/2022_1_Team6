@@ -30,6 +30,16 @@ struct EventPost : Codable {
     let Delta: Int64?
 }
 
+struct EventPostEdit : Codable {
+    let id: String
+    let title: String
+    let description: String
+    let timestamp: Int64
+    let members: [String]
+    let isRegular: Bool
+    let Delta: Int64?
+}
+
 struct EventAnswer: Codable {
     let message: String
     let event_id: String?

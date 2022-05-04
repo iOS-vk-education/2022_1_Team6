@@ -16,6 +16,7 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBOutlet weak var deltaInput: UITextField!
     @IBOutlet weak var memberTable: UITableView!
     @IBOutlet weak var newMemberInput: UITextField!
+    @IBOutlet weak var AddButton: UIButton!
     
     private let eventPresenter = EventPresenter()
     private let sbNames = StoryBoardsNames()
@@ -24,6 +25,8 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     private let deltaData = ["Никогда", "Каждый день", "Каждую неделю", "Каждые 2 недели", "Каждый месяц"]
     private var dayDate = Date()
     private var memberList = [String]()
+    private var isEdit = false
+    private var eventEditId = ""
     let cellReuseIdentifier = "cell"
 
     
@@ -48,6 +51,14 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         self.memberTable.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         memberTable.delegate = self
         memberTable.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isEdit {
+            self.AddButton.setTitle("Изменить", for: .normal)
+            self.fillInputs()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -161,6 +172,24 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
          
         self.present(alert, animated: true)
+    }
+    
+    func setEditMode(eventId: String) {
+        self.isEdit = true
+        self.eventEditId = eventId
+    }
+    
+    func fillInputsWithEvent(event: EventEmbeded, _ username: String) {
+        self.titleInput.text = event.title
+        self.dateInput.text = String(event.timestamp)
+        self.desricptionField.text = event.desc
+        self.deltaInput.text = String(event.delta)
+        self.memberList = Array(event.members).filter {$0 != username}
+        self.memberTable.reloadData()
+    }
+    
+    private func fillInputs() {
+        self.eventPresenter.fillInputs(eventId: self.eventEditId)
     }
     
     @IBAction func didPressAddButton(_ sender: Any) {
