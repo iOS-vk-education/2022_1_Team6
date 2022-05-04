@@ -11,6 +11,7 @@ protocol EventDelegate: NSObjectProtocol {
     func invalidEvent(error: newEventErrors)
     func resetInvalidInputs()
     func eventPosted()
+    func notifyOfError(error: newEventErrors)
 }
 
 class EventPresenter {
@@ -31,7 +32,7 @@ class EventPresenter {
     
     func eventValid() {
         self.eventDelegate?.resetInvalidInputs()
-        self.eventModel.post(okCallback: self.eventDelegate?.eventPosted, failCallBack: self.invalid)
+        self.eventModel.post(okCallback: self.eventDelegate?.eventPosted, failCallBack: self.eventDelegate?.notifyOfError)
     }
     
     func invalid() {

@@ -114,6 +114,14 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         self.dateInput.backgroundColor = .systemBackground
     }
     
+    func notifyOfError(error: newEventErrors) {
+        let alert = UIAlertController(title: "Ошибка создания события", message: "Cервер вернул ошибку \(error)", preferredStyle: .alert)
+         
+        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+         
+        self.present(alert, animated: true)
+    }
+    
     @IBAction func didPressAddButton(_ sender: Any) {
         print(self.dayDate)
         let members: [String] = []

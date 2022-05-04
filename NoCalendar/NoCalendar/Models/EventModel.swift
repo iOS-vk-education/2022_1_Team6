@@ -8,6 +8,7 @@
 import Foundation
 
 class EventModel {
+    private let codes = statusCodes()
     private var date: Date = Date()
     private var title: String = ""
     private var time: Date = Date()
@@ -38,7 +39,7 @@ class EventModel {
         }
     }
     
-    func post(okCallback: (() -> Void)?, failCallBack: (() -> Void)?) {
+    func post(okCallback: (() -> Void)?, failCallBack: ((newEventErrors) -> Void)?) {
         print(self.date, self.time)
         let hour = Calendar.current.component(.hour, from: self.time)
         let properDate = Calendar.current.date(byAdding: .hour, value: hour, to: self.date)
@@ -54,7 +55,6 @@ class EventModel {
         NetworkModule.shared.postEvent(event: event, completion: { [] result in
             switch result {
             case .success(let answer):
-                print(answer)
                 DispatchQueue.main.async {
                     NetworkModule.shared.getAllEvents(completion: { [] result in
                         switch result {
@@ -73,12 +73,12 @@ class EventModel {
                 DispatchQueue.main.async {
                     let err = error as NSError
                     print(err.code)
-//                    switch err.code {
-//                    case self.codes.badRequest:
-//                        failCallBack?(EventErrors.notAuthorised)
-//                    default:
-//                        failCallBack?(Event)
-//                    }
+                    switch err.code {
+                    case self.codes.badRequest:
+                        failCallBack?(newEventErrors.badRequest)
+                    default:
+                        failCallBack?(newEventErrors.noConnection)
+                    }
                 }
             }
         })

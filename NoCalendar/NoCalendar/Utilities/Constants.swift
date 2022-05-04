@@ -37,6 +37,8 @@ enum newEventErrors {
     case noTitle
     case noDate
     case noDateAndTitle
+    case badRequest
+    case noConnection
 }
 
 struct StoryBoardsNames {

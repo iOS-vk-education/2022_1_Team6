@@ -29,6 +29,7 @@ class MonthModel {
         NetworkModule.shared.getAllEvents(completion: { [] result in
             switch result {
             case .success(let eventArray):
+                print("AAAAA")
                 DatabaseModule.shared.saveEvents(events: eventArray)
                 self.useSavedData()
                 DispatchQueue.main.async {
@@ -37,7 +38,7 @@ class MonthModel {
             case .failure(let error):
                 DispatchQueue.main.async {
                     let err = error as NSError
-                    print(err.code)
+                    print(err.code, "AAAAAAAAA")
                     switch err.code {
                     case self.codes.unauthorized:
                         failCallBack?(EventErrors.notAuthorised)
@@ -49,9 +50,10 @@ class MonthModel {
         })
     }
     
-    func useSavedData() {
+    func useSavedData(okCallback: (() -> Void)? = nil) {
         self.activeEvents = DatabaseModule.shared.getEvents()
         self.getTodayEvents()
+        okCallback?()
     }
     
     func getActiveEvents() -> [Date] {
