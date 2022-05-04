@@ -8,19 +8,24 @@
 import UIKit
 
 
-class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var dateInput: UITextField!
     @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var desricptionField: UITextView!
     @IBOutlet weak var deltaInput: UITextField!
+    @IBOutlet weak var memberTable: UITableView!
+    @IBOutlet weak var newMemberInput: UITextField!
     
     private let eventPresenter = EventPresenter()
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
     
-    private let deltaData = ["Никогда", "Каждый час", "Каждый день", "Каждую неделю", "Каждый месяц"]
+    private let deltaData = ["Никогда", "Каждый день", "Каждую неделю", "Каждые 2 недели", "Каждый месяц"]
     private var dayDate = Date()
+    private var memberList = [String]()
+    let cellReuseIdentifier = "cell"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +44,36 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         deltaPicker.dataSource = self
         deltaPicker.delegate = self
         deltaInput.inputView = deltaPicker
+        
+        self.memberTable.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        memberTable.delegate = self
+        memberTable.dataSource = self
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.memberList.count
+    }
+    
+    // create a cell for each table view row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell:UITableViewCell = (self.memberTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
+
+        cell.textLabel?.text = self.memberList[indexPath.row]
+
+        return cell
+    }
+
+    // this method handles row deletion
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // remove the item from the data model
+            memberList.remove(at: indexPath.row)
+            // delete the table view row
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
     
     @objc func dateChanged(datePicker: UIDatePicker) {
         dateInput.text = formateDate(date: datePicker.date)
@@ -95,6 +129,13 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBAction func startEditInDate(_ sender: Any) {
         self.dateInput.backgroundColor = .systemBackground
     }
+    
+    @IBAction func didPressAddMember(_ sender: Any) {
+        if let newMember = self.newMemberInput.text {
+            memberList.append(newMember)
+            memberTable.reloadData()
+        }
+    }
     func invalidEvent(error: newEventErrors) {
         switch error {
         case .noTitle:
@@ -123,9 +164,7 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     }
     
     @IBAction func didPressAddButton(_ sender: Any) {
-        print(self.dayDate)
-        let members: [String] = []
-        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", members)
+        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", self.memberList)
     }
     
     private func goToDayContoller() {
