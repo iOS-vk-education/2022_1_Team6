@@ -23,6 +23,7 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
         self.singleDayPresenter.setSingleDayDelegate(delegate: self)
         self.dateFormatter.dateFormat = "d MMMM y, EEEE"
         self.table.dataSource = self
+        self.table.allowsSelection = true
         self.updateLayout(with: self.view.frame.size)
         self.initData()
     }
@@ -65,13 +66,20 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
        }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCell(withIdentifier: "TableViewCell")
         let timeLabel = cell?.contentView.viewWithTag(1) as! UILabel
         timeLabel.text = self.data[indexPath.row].time
-        let eventLabel = cell?.contentView.viewWithTag(2) as! UILabel
-        eventLabel.text = self.data[indexPath.row].eventName
+        let eventLabelBtn = cell?.contentView.viewWithTag(2) as! UIButton
+        eventLabelBtn.setTitle(self.data[indexPath.row].eventName, for: .normal)
+        eventLabelBtn.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        eventLabelBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return cell!
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        print(sender.titleLabel?.text)
     }
     
     @IBAction func DidPressAddButton(_ sender: Any) {

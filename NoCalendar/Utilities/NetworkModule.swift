@@ -172,7 +172,6 @@ final class NetworkModule: NetworkDelegate {
                 } else {
                     let decoder = JSONDecoder()
                     do {
-                        print(String(data: data, encoding: String.Encoding.utf8) as String?)
                         let evResponse = try decoder.decode(EventAnswer.self, from: data)
                         completion(.success(evResponse))
                     } catch let error {
