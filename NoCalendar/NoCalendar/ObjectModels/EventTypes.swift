@@ -30,6 +30,11 @@ struct EventPost : Codable {
     let Delta: Int64?
 }
 
+struct EventAnswer: Codable {
+    let message: String
+    let event_id: String?
+}
+
 class EventEmbeded : Object {
     @Persisted var id = ""
     @Persisted var title = ""
@@ -58,7 +63,7 @@ struct serverEvent: Codable {
 }
 
 struct singleDayTimeAndEvent {
-    let time: String
-    let eventName: String
-    let eventId: String
+    var time: String
+    var eventName: String
+    var eventId: String
 }

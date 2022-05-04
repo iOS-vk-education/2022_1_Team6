@@ -11,6 +11,7 @@ protocol NetworkDelegate {
     func authorise(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func register(login: String, email:String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void)
+    func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -145,6 +146,43 @@ final class NetworkModule: NetworkDelegate {
         }.resume()
     }
     
+        
+    func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void) {
+        let jsonData = try? JSONEncoder().encode(event)
+        let url = URL(string: endpoint + "event")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        request.httpBody = jsonData
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.badRequest { // если 400 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        print(String(data: data, encoding: String.Encoding.utf8) as String?)
+                        let evResponse = try decoder.decode(EventAnswer.self, from: data)
+                        completion(.success(evResponse))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }.resume()
+    }
+
     private func setToken(response: HTTPURLResponse) {
         self.token = response.allHeaderFields["Authorize"] as! String
         if token != "" {

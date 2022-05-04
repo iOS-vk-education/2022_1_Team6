@@ -50,8 +50,7 @@ class MonthPresenter {
         case EventErrors.notAuthorised:
             monthDelegate?.notAuthorised()
         default:
-            monthModel.useSavedData()
-            self.getHeader()
+            monthModel.useSavedData(okCallback: self.getInfo)
         }
     }
 }
