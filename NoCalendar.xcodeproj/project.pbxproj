@@ -22,7 +22,6 @@
 		FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */; };
 		FC4FA79327FA157700483FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79127FA157700483FEF /* Main.storyboard */; };
 		FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79427FA157800483FEF /* Assets.xcassets */; };
-		FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */; };
 		FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518D3B27FA34D1009552F6 /* AppUtility.swift */; };
 		FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */; };
 		FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */; };
@@ -37,6 +36,7 @@
 		FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87727281F3A6000B23CD6 /* EventView.swift */; };
 		FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */; };
 		FCA8772C281F3A9000B23CD6 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8772B281F3A9000B23CD6 /* EventModel.swift */; };
+		FCAAB7592822F71E00AEC1E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */; };
 		FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FC280C2C4C0033A055 /* Constants.swift */; };
 		FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FE280C35920033A055 /* SignUpView.swift */; };
 		FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC900280C35A00033A055 /* SignUpPresenter.swift */; };
@@ -76,7 +76,6 @@
 		FC4FA78827FA157700483FEF /* NoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA79227FA157700483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC4FA79427FA157800483FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC4FA79727FA157800483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC4FA79927FA157800483FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC4FA79E27FA157800483FEF /* NoCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA7A827FA157800483FEF /* NoCalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +92,7 @@
 		FCA87727281F3A6000B23CD6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		FCA8772B281F3A9000B23CD6 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCBAC8FC280C2C4C0033A055 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCBAC8FE280C35920033A055 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FCBAC900280C35A00033A055 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -159,7 +159,6 @@
 				FC6EE1EE27FC67D2000DFC1D /* Views */,
 				FC518D3A27FA34A8009552F6 /* Utilities */,
 				FC4FA79427FA157800483FEF /* Assets.xcassets */,
-				FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */,
 				FC4FA79927FA157800483FEF /* Info.plist */,
 				FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */,
 				FC4FA79127FA157700483FEF /* Main.storyboard */,
@@ -168,6 +167,7 @@
 				FC3FD9CE280C83170057DBAB /* Settings.storyboard */,
 				FCBAC918280C80570033A055 /* SignUp.storyboard */,
 				FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */,
+				FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */,
 				FCA87725281F315000B23CD6 /* Event.storyboard */,
 			);
 			path = NoCalendar;
@@ -345,11 +345,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAAB7592822F71E00AEC1E2 /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */,
 				FCA87726281F315000B23CD6 /* Event.storyboard in Resources */,
 				FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */,
 				FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */,
-				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CF280C83170057DBAB /* Settings.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
 				FC4FA79327FA157700483FEF /* Main.storyboard in Resources */,
@@ -442,14 +442,6 @@
 				FC4FA79227FA157700483FEF /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC4FA79727FA157800483FEF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
