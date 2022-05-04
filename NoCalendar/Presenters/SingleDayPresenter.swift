@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol SingleDayDelegate: NSObjectProtocol {
-    
+    func setEvents(events: [EventEmbeded])
 }
 
 class SingleDayPresenter {
@@ -24,7 +24,8 @@ class SingleDayPresenter {
         self.singleDayDelegate = delegate;
     }
     
-    func getThisDayEvents() {
-        
+    func getThisDayEvents(day: Date) {
+        let todayEvents = self.singleDayModel.getTodayEvents(day: day)
+        self.singleDayDelegate?.setEvents(events: todayEvents)
     }
 }
