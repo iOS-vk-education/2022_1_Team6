@@ -13,6 +13,7 @@ protocol NetworkDelegate {
     func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void)
     func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func updateEvent(event: EventPostEdit, completion: @escaping (Result<EventAnswer, Error>) -> Void)
+    func deleteEvent(eventId: String, completion: @escaping (Result<serverAnswer, Error>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -209,6 +210,38 @@ final class NetworkModule: NetworkDelegate {
                     let decoder = JSONDecoder()
                     do {
                         let evResponse = try decoder.decode(EventAnswer.self, from: data)
+                        completion(.success(evResponse))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }.resume()
+    }
+    
+    func deleteEvent(eventId: String, completion: @escaping (Result<serverAnswer, Error>) -> Void) {
+        let url = URL(string: endpoint + "event/remove/" + eventId)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.badRequest || response.statusCode == self.codes.noRights { // если 400 или 403 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        let evResponse = try decoder.decode(serverAnswer.self, from: data)
                         completion(.success(evResponse))
                     } catch let error {
                         completion(.failure(error))

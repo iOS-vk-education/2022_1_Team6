@@ -38,6 +38,7 @@ enum newEventErrors {
     case noDate
     case noDateAndTitle
     case badRequest
+    case noRights
     case noConnection
 }
 
@@ -62,6 +63,7 @@ struct UiControllerNames {
 struct statusCodes {
     let ok = 200
     let badRequest = 400
+    let noRights = 403
     let unauthorized = 401
     let notFound = 404
 }

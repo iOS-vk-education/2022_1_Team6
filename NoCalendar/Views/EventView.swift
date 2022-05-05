@@ -17,6 +17,7 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBOutlet weak var memberTable: UITableView!
     @IBOutlet weak var newMemberInput: UITextField!
     @IBOutlet weak var AddButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     private let eventPresenter = EventPresenter()
     private let sbNames = StoryBoardsNames()
@@ -66,6 +67,8 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         if isEdit {
             self.AddButton.setTitle("Изменить", for: .normal)
             self.fillInputs()
+        } else {
+            self.deleteButton.isHidden = true
         }
     }
     
@@ -148,11 +151,16 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBAction func startEditInDate(_ sender: Any) {
         self.dateInput.backgroundColor = .systemBackground
     }
+
+    @IBAction func didPressDelete(_ sender: Any) {
+        self.eventPresenter.deleteEvent(eventId: self.eventEditId)
+    }
     
     @IBAction func didPressAddMember(_ sender: Any) {
         if let newMember = self.newMemberInput.text {
             memberList.append(newMember)
             memberTable.reloadData()
+            self.newMemberInput.text = ""
         }
     }
     func invalidEvent(error: newEventErrors) {
@@ -175,10 +183,13 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     }
     
     func notifyOfError(error: newEventErrors) {
-        let alert = UIAlertController(title: "Ошибка создания события", message: "Cервер вернул ошибку \(error)", preferredStyle: .alert)
-         
+        var alert: UIAlertController
+        if error == .noRights {
+            alert = UIAlertController(title: "Ошибка удаления события", message: "Недостаточно прав для совершения данного действия", preferredStyle: .alert)
+        } else {
+            alert = UIAlertController(title: "Ошибка создания события", message: "Cервер вернул ошибку \(error)", preferredStyle: .alert)
+        }
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
-         
         self.present(alert, animated: true)
     }
     

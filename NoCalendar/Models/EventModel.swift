@@ -122,8 +122,41 @@ class EventModel {
     
     func getEventById(_ eventId: String) -> (EventEmbeded, String) {
         let userdata = DatabaseModule.shared.getUser()
-        var eventData = DatabaseModule.shared.getEventById(Id: eventId)
+        let eventData = DatabaseModule.shared.getEventById(Id: eventId)
         return (eventData, userdata!.login)
+    }
+    
+    func deleteEvent(_ eventId: String, okCallback: (() -> Void)?, failCallBack: ((newEventErrors) -> Void)?) {
+        NetworkModule.shared.deleteEvent(eventId: eventId, completion: { [] result in
+            switch result {
+            case .success(let answer):
+                DispatchQueue.main.async {
+                    NetworkModule.shared.getAllEvents(completion: { [] result in
+                        switch result {
+                        case .success(let eventArray):
+                            DatabaseModule.shared.saveEvents(events: eventArray)
+                            DispatchQueue.main.async {
+                                okCallback?()
+                            }
+                        case .failure(let error):
+                            print("SAD :( ", error)
+                        }
+                    })
+                    
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let err = error as NSError
+                    print(err.code)
+                    switch err.code {
+                    case self.codes.noRights:
+                        failCallBack?(newEventErrors.noRights)
+                    default:
+                        failCallBack?(newEventErrors.noConnection)
+                    }
+                }
+            }
+        })
     }
     
     private func saveData(_ date: Date, _ title: String, _ time: String, _ delta: String, _ description: String, _ members: [String]) {

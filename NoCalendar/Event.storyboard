@@ -98,19 +98,19 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SC-bs-hT4">
-                                <rect key="frame" x="130" y="253" width="111" height="27"/>
+                                <rect key="frame" x="130" y="243" width="111" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Участники" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMa-qm-YBE">
-                                <rect key="frame" x="125.66666666666669" y="447" width="120" height="27"/>
+                                <rect key="frame" x="125.66666666666669" y="437" width="120" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wZG-5I-fxV">
-                                <rect key="frame" x="16" y="290" width="339" height="137"/>
+                                <rect key="frame" x="16" y="280" width="339" height="147"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="359" id="1pq-zE-hSg"/>
@@ -121,7 +121,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iyp-nb-El8">
-                                <rect key="frame" x="16" y="484" width="339" height="34"/>
+                                <rect key="frame" x="16" y="474" width="339" height="34"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Добавить участника" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jYy-z8-9iW">
                                         <rect key="frame" x="0.0" y="0.0" width="251" height="34"/>
@@ -154,9 +154,21 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-V1-Wl4">
-                                <rect key="frame" x="16" y="528" width="339" height="192"/>
+                                <rect key="frame" x="16" y="518" width="339" height="182"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="wta-PV-lZI">
+                                <rect key="frame" x="90" y="710" width="191" height="36"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Удалить событие">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didPressDelete:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="shf-Xy-Y8W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -167,16 +179,18 @@
                             <constraint firstItem="8pa-en-Gfe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3vd-ER-b2J"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0SC-bs-hT4" secondAttribute="trailing" constant="130" id="5U9-sr-RE2"/>
                             <constraint firstItem="rMa-qm-YBE" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="AgN-2c-Yyj"/>
-                            <constraint firstItem="0SC-bs-hT4" firstAttribute="top" secondItem="GdB-Up-rPf" secondAttribute="bottom" constant="20" id="CCj-Bp-w4L"/>
+                            <constraint firstItem="0SC-bs-hT4" firstAttribute="top" secondItem="GdB-Up-rPf" secondAttribute="bottom" constant="10" id="CCj-Bp-w4L"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wZG-5I-fxV" secondAttribute="bottom" constant="363" id="Dhn-Lr-iSa"/>
                             <constraint firstItem="13f-8D-PeC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="FPj-RM-4nA"/>
                             <constraint firstItem="jPW-V1-Wl4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="FSv-z7-GlH"/>
                             <constraint firstItem="Iyp-nb-El8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Io9-pa-GBU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jPW-V1-Wl4" secondAttribute="trailing" constant="16" id="JoP-ok-Pjw"/>
                             <constraint firstItem="0SC-bs-hT4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="130" id="KhF-Ko-mkn"/>
+                            <constraint firstItem="wta-PV-lZI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="90" id="OYU-Y2-oko"/>
                             <constraint firstItem="13f-8D-PeC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="OsJ-o8-pmf"/>
                             <constraint firstItem="1fq-W3-KiL" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="SKU-kJ-pZy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jPW-V1-Wl4" secondAttribute="trailing" constant="16" id="Tmc-3p-G1m"/>
+                            <constraint firstItem="wta-PV-lZI" firstAttribute="top" secondItem="jPW-V1-Wl4" secondAttribute="bottom" constant="10" id="V2C-KN-Oxf"/>
                             <constraint firstItem="hqM-Qn-l9a" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="WAJ-xL-VOv"/>
                             <constraint firstItem="jPW-V1-Wl4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="XfR-Nr-LCK"/>
                             <constraint firstItem="1fq-W3-KiL" firstAttribute="top" secondItem="hqM-Qn-l9a" secondAttribute="bottom" constant="20" id="ZF3-Kk-ZRu"/>
@@ -184,9 +198,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GdB-Up-rPf" secondAttribute="trailing" constant="16" id="aMX-vG-UNX"/>
                             <constraint firstItem="GdB-Up-rPf" firstAttribute="top" secondItem="UAj-id-jiz" secondAttribute="bottom" constant="10" id="aa7-qP-NyI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8pa-en-Gfe" secondAttribute="trailing" constant="15" id="bOx-OO-uDB"/>
-                            <constraint firstItem="rMa-qm-YBE" firstAttribute="top" secondItem="wZG-5I-fxV" secondAttribute="bottom" constant="20" id="bs3-hd-6lA"/>
+                            <constraint firstItem="rMa-qm-YBE" firstAttribute="top" secondItem="wZG-5I-fxV" secondAttribute="bottom" constant="10" id="bs3-hd-6lA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UAj-id-jiz" secondAttribute="trailing" constant="117" id="eBd-w3-X8y"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jPW-V1-Wl4" secondAttribute="bottom" constant="70" id="eHN-DV-m3K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jPW-V1-Wl4" secondAttribute="bottom" constant="90" id="eHN-DV-m3K"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wta-PV-lZI" secondAttribute="trailing" constant="90" id="flp-ka-oVj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wZG-5I-fxV" secondAttribute="trailing" constant="16" id="h6q-MQ-62z"/>
                             <constraint firstItem="UAj-id-jiz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="117" id="hVF-Y2-IRu"/>
                             <constraint firstItem="UAj-id-jiz" firstAttribute="top" secondItem="1fq-W3-KiL" secondAttribute="bottom" constant="20" id="l8c-3D-Fdk"/>
@@ -202,6 +217,7 @@
                     <connections>
                         <outlet property="AddButton" destination="8pa-en-Gfe" id="fd5-B0-qCg"/>
                         <outlet property="dateInput" destination="Wir-W3-hB9" id="aK4-JI-nBj"/>
+                        <outlet property="deleteButton" destination="wta-PV-lZI" id="RHj-UM-ZNp"/>
                         <outlet property="deltaInput" destination="oeD-62-9gX" id="0qp-bc-P3Q"/>
                         <outlet property="desricptionField" destination="wZG-5I-fxV" id="T6s-of-teC"/>
                         <outlet property="memberTable" destination="jPW-V1-Wl4" id="hdG-pG-v0O"/>

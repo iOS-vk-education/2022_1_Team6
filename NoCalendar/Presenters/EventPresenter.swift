@@ -44,6 +44,10 @@ class EventPresenter {
         self.eventDelegate?.fillInputsWithEvent(event: Event.0, Event.1)
     }
     
+    func deleteEvent(eventId: String) {
+        self.eventModel.deleteEvent(eventId, okCallback: self.eventDelegate?.eventPosted, failCallBack: self.eventDelegate?.notifyOfError)
+    }
+    
     func invalid() {
         print("i am invalid")
     }
