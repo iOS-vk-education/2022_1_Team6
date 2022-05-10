@@ -25,6 +25,30 @@ class LoginPresenter {
         self.loginViewDelegate = loginDelegate;
     }
     
+    func oauth(_ info : Any) {
+        var name = ""
+        var surname = ""
+        var username = ""
+        var email = ""
+        for (key, value) in info as! [String: Any] {
+            print(key, value)
+            if (key == "screen_name") {
+                username = value as! String
+            }
+            if (key == "last_name") {
+                surname = value as! String
+            }
+            if (key == "first_name") {
+                name = value as! String
+            }
+        }
+        if (username == "") {
+            username = surname+name
+        }
+        email = surname+name+"@mail.ru"
+        print(name, surname, username, email)
+    }
+    
     func loginPressed(login:String, password:String) {
         let validationRes = loginModel.validateLoginInputs(login: login, password: password)
         if validationRes == loginErrors.noError {

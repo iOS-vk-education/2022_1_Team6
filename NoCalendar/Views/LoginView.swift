@@ -11,7 +11,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
     private let loginPresenter = LoginPresenter()
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
-    private let scopes: Scopes = [.email, .status]
+    private let scopes: Scopes = [.email]
     private let appId = "8163032"
     
     
@@ -30,12 +30,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
 
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
-
         view.addGestureRecognizer(tap)
+        VK.sessions.default.logOut()
     }
     
     func vkTokenCreated(for sessionId: String, info: [String : String]) {
         print("token created in session \(sessionId) with info \(info)")
+    }
+    
+    func vkDidAutorize(parameters: Dictionary<String, String>) {
+        print(parameters)
     }
     
     func vkNeedsScopes(for sessionId: String) -> Scopes {
@@ -52,6 +56,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
         VK.sessions.default.logIn(
             onSuccess: { info in
                 print("SwiftyVK: success authorize with", info)
+                VK.API.Account.getProfileInfo(.empty)
+                            .onSuccess {
+                                let response = try JSONSerialization.jsonObject(with: $0)
+                                self.loginPresenter.oauth(response)
+                            }.send()
             },
             onError: { _ in
                 DispatchQueue.main.async {
@@ -87,13 +96,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
     
     override func viewDidAppear(_ animated: Bool) {
         loginPresenter.checkToken()
-//        VK.API.Users.get([
-//            .fields: "sex,bdate,city,email"
-//            ])
-//            .onSuccess {
-//                let response = try JSONSerialization.jsonObject(with: $0)
-//                print(response)
-//            }.send()
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
