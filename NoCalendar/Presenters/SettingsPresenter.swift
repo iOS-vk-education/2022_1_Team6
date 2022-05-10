@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftyVK
 
 protocol SettingsViewDelegate: NSObjectProtocol {
     func goToLoginView()
@@ -26,6 +27,7 @@ class SettingsPresenter {
     
     func logout() {
         self.settingsModel.deleteUser()
+        VK.sessions.default.logOut()
         self.settingDelegate?.goToLoginView()
     }
     

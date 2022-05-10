@@ -14,6 +14,7 @@ enum loginErrors {
     case noSuchUser
     case passwordMismatch
     case noConnection
+    case VKError
 }
 
 enum RegErrors {
