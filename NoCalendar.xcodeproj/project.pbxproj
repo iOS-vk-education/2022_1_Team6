@@ -30,6 +30,7 @@
 		FC74AC622817E511008FA4C8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FC74AC612817E511008FA4C8 /* FSCalendar */; };
 		FC89DD98282AF49E00FEE085 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */; };
 		FC89DD99282AF49E00FEE085 /* SwiftyVK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC89DD9C282C413E00FEE085 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC89DD9B282C413E00FEE085 /* Hasher.swift */; };
 		FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */; };
 		FCA8771E281EF8DE00B23CD6 /* SingleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */; };
 		FCA87722281EF9B700B23CD6 /* SingleDayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */; };
@@ -101,6 +102,7 @@
 		FC6EE1F627FC6876000DFC1D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVK.framework; path = "Carthage/Build/SwiftyVK.xcframework/ios-arm64_i386_x86_64-simulator/SwiftyVK.framework"; sourceTree = "<group>"; };
+		FC89DD9B282C413E00FEE085 /* Hasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hasher.swift; sourceTree = "<group>"; };
 		FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleDay.storyboard; sourceTree = "<group>"; };
 		FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayView.swift; sourceTree = "<group>"; };
 		FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayPresenter.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				FCBAC8FC280C2C4C0033A055 /* Constants.swift */,
 				FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */,
 				FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */,
+				FC89DD9B282C413E00FEE085 /* Hasher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
 				FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */,
+				FC89DD9C282C413E00FEE085 /* Hasher.swift in Sources */,
 				FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

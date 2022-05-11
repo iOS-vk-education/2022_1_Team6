@@ -9,7 +9,8 @@ import Foundation
 
 protocol NetworkDelegate {
     func authorise(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
-    func register(login: String, email:String, password: String, completion: @escaping (Result<User, Error>) -> Void)
+    func register(login: String, email: String, password: String, name: String?, surname: String?,
+                  completion: @escaping (Result<User, Error>) -> Void)
     func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void)
     func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func updateEvent(event: EventPostEdit, completion: @escaping (Result<EventAnswer, Error>) -> Void)
@@ -62,6 +63,7 @@ final class NetworkModule: NetworkDelegate {
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
                 } else {
+                    print(response, "here")
                     self.setToken(response: response)
                     let decoder = JSONDecoder()
                     do {
@@ -75,9 +77,14 @@ final class NetworkModule: NetworkDelegate {
         }.resume()
     }
     
-    func register(login: String, email: String, password: String,
+    func register(login: String, email: String, password: String, name: String? = nil, surname: String? = nil,
                   completion: @escaping (Result<User, Error>) -> Void) {
-        let json: [String: Any] = ["login": login, "email": email, "password": password]
+        let json: [String: String]
+        if let _name = name, let _surname = surname {
+            json = ["login": login, "email": email, "password": password, "name": _name, "surname": _surname]
+        } else {
+            json = ["login": login, "email": email, "password": password]
+        }
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
@@ -100,12 +107,12 @@ final class NetworkModule: NetworkDelegate {
             }
             
             if let response = response as? HTTPURLResponse {
-                if response.statusCode == self.codes.badRequest { // если 400 сразу отправляем ошибку
+                if response.statusCode == self.codes.badRequest || response.statusCode == self.codes.alreadyRegister{ // если 400 сразу отправляем ошибку
                     let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
                     completion(.failure(errorTemp))
                 } else {
                     self.setToken(response: response)
-                    let tmpUser = User(login: login, email: email, name: nil, surname: nil, password: password)
+                    let tmpUser = User(login: login, email: email, name: name, surname: surname, password: password)
                     completion(.success(tmpUser))
                 }
             }

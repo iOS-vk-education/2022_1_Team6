@@ -29,7 +29,7 @@ class SignUpModel {
     }
     
     func reg(login: String, email: String, password:String, okCallback: (() -> Void)? = nil, failCallBack: ((RegErrors) -> Void)? = nil) {
-        NetworkModule.shared.register(login: login, email: email, password: password, completion: { [] result in
+        NetworkModule.shared.register(login: login, email: email, password: password, name: nil, surname: nil, completion: { [] result in
             switch result {
             case .success(let user):
                 DatabaseModule.shared.saveUser(user: user)

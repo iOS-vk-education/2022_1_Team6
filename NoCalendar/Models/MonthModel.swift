@@ -15,9 +15,9 @@ class MonthModel {
     func getHeaderInfo() -> (String, Int) {
         let activeEventsCount = self.todayEvents.count
         let user = DatabaseModule.shared.getUser()
-        if let name = user?.name, let surname = user?.surname {
-            if (name.count > 0 && surname.count > 0) {
-                return (name + " " + surname, activeEventsCount)
+        if let name = user?.name {
+            if (name.count > 0) {
+                return (name, activeEventsCount)
             } else if let login = user?.login {
                 return (login, activeEventsCount)
             }
@@ -70,7 +70,8 @@ class MonthModel {
     
     private func getTodayEvents() {
         let today = Date()
-        let todayPlusDay = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        let todaysEnd = Calendar.current.date(bySetting: .hour, value: 23, of: today)!
+        let todayPlusDay = Calendar.current.date(bySetting: .minute, value: 59, of: todaysEnd)!
         self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(today.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
     }
 }

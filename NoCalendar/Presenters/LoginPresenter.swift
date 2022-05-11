@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CommonCrypto
 
 protocol LoginViewDelegate: NSObjectProtocol {
     func loginSuccess()
@@ -16,6 +17,7 @@ protocol LoginViewDelegate: NSObjectProtocol {
 class LoginPresenter {
     weak private var loginViewDelegate : LoginViewDelegate?
     private let loginModel = LoginModel()
+    private let salt = "secret"
     
     init() {
         print("Hello from presenter !")
@@ -46,7 +48,9 @@ class LoginPresenter {
             username = surname+name
         }
         email = surname+name+"@mail.ru"
-        print(name, surname, username, email)
+        let password = (surname + name + self.salt).sha256()
+        print(name, surname, username, email, password)
+        self.loginModel.regWithOauth(name, surname, username, email, password, okCallback: self.loginViewDelegate?.loginSuccess, failCallBack: self.loginViewDelegate?.loginValidate)
     }
     
     func loginPressed(login:String, password:String) {

@@ -25,6 +25,7 @@ enum RegErrors {
     case passwordMismatch
     case userExist
     case noConnection
+    case VKError
 }
 
 enum EventErrors {
@@ -67,6 +68,7 @@ struct statusCodes {
     let noRights = 403
     let unauthorized = 401
     let notFound = 404
+    let alreadyRegister = 409
 }
 
 let networkKeyString = "networkToken"

@@ -31,15 +31,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
-        VK.sessions.default.logOut()
     }
     
     func vkTokenCreated(for sessionId: String, info: [String : String]) {
         print("token created in session \(sessionId) with info \(info)")
-    }
-    
-    func vkDidAutorize(parameters: Dictionary<String, String>) {
-        print(parameters)
     }
     
     func vkNeedsScopes(for sessionId: String) -> Scopes {
@@ -62,10 +57,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
                                 self.loginPresenter.oauth(response)
                             }.send()
             },
-            onError: { _ in
-                DispatchQueue.main.async {
-                    self.loginValidate(errorCode: .VKError)
-                }
+            onError: { err in
+                VK.API.Account.getProfileInfo(.empty)
+                            .onSuccess {
+                                let response = try JSONSerialization.jsonObject(with: $0)
+                                self.loginPresenter.oauth(response)
+                            }
+                            .onError {_ in 
+                                DispatchQueue.main.async {
+                                    self.loginValidate(errorCode: .VKError)
+                                }
+                            }.send()
+
             }
         )
     }
