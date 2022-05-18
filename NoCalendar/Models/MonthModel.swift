@@ -29,7 +29,6 @@ class MonthModel {
         NetworkModule.shared.getAllEvents(completion: { [] result in
             switch result {
             case .success(let eventArray):
-                print("AAAAA")
                 DatabaseModule.shared.saveEvents(events: eventArray)
                 self.useSavedData()
                 DispatchQueue.main.async {

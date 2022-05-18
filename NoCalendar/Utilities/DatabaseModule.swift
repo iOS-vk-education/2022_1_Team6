@@ -14,7 +14,7 @@ protocol DatabaseDelegate {
     func getUser() -> UserEmbeded?
     func getToken() -> String
     func getEvents() -> Array<EventEmbeded>
-    func saveEvents(events: [serverEvent])
+    func saveEvents(events: [Event])
     func getEventsInSomePeriod(from: Int64, to: Int64) -> [EventEmbeded]
     func getEventById(Id: String) -> EventEmbeded
 }
@@ -52,57 +52,42 @@ final class DatabaseModule : DatabaseDelegate {
     
     func getEvents() -> [EventEmbeded] {
         let realm = try! Realm()
-        let events = realm.objects(ServerEventEmbeded.self)
+        let events = realm.objects(EventEmbeded.self)
         var res = [EventEmbeded]()
         for event in events {
-            if let actual = event.actual {
-                res.append(actual)
-            }
+            res.append(event)
         }
         return res
     }
     
     func getEventById(Id: String) -> EventEmbeded {
         let realm = try! Realm()
-        let events = realm.objects(ServerEventEmbeded.self)
+        let events = realm.objects(EventEmbeded.self)
         let res = events.where {
-            $0.actual.id == Id
+            $0.id == Id
         }
-        return (res.first?.actual)!
+        return (res.first)!
     }
     
-    func saveEvents(events: [serverEvent]) {
+    func saveEvents(events: [Event]) {
         let realm = try! Realm()
         try! realm.write {
-            let oldEvents = realm.objects(ServerEventEmbeded.self)
+            let oldEvents = realm.objects(EventEmbeded.self)
             realm.delete(oldEvents)
-            var eventsArray = [ServerEventEmbeded]()
+            var eventsArray = [EventEmbeded]()
             for event in events {
                 let actual = EventEmbeded()
-                actual.author = event.actual.author
-                actual.desc = event.actual.description
-                actual.members = event.actual.members
-                actual.id = event.actual.id
-                actual.timestamp = event.actual.timestamp
-                actual.title = event.actual.title
-                actual.active_members = event.actual.active_members
-                actual.is_regular = event.actual.is_regular
-                actual.delta = event.actual.delta
-                
-                let meta = EventEmbeded()
-                meta.author = event.meta.author
-                meta.desc = event.meta.description
-                meta.members = event.meta.members
-                meta.id = event.meta.id
-                meta.timestamp = event.meta.timestamp
-                meta.title = event.meta.title
-                meta.active_members = event.meta.active_members
-                meta.is_regular = event.meta.is_regular
-                meta.delta = event.meta.delta
-                let newEvent = ServerEventEmbeded()
-                newEvent.actual = actual
-                newEvent.meta = meta
-                eventsArray.append(newEvent)
+                actual.author = event.author
+                actual.desc = event.description
+                actual.members = event.members
+                actual.id = event.id
+                actual.timestamp = event.timestamp
+                actual.title = event.title
+                actual.active_members = event.active_members
+                actual.is_regular = event.is_regular
+                actual.delta = event.delta
+                print(actual)
+                eventsArray.append(actual)
             }
             realm.add(eventsArray)
         }
@@ -110,15 +95,13 @@ final class DatabaseModule : DatabaseDelegate {
     
     func getEventsInSomePeriod(from: Int64, to: Int64) -> [EventEmbeded] {
         let realm = try! Realm()
-        let events = realm.objects(ServerEventEmbeded.self)
+        let events = realm.objects(EventEmbeded.self)
         let todayEvents = events.where {
-            $0.actual.timestamp <= to && $0.actual.timestamp >= from
+            $0.timestamp <= to && $0.timestamp >= from
         }
         var res = [EventEmbeded]()
         for event in todayEvents {
-            if let actual = event.actual {
-                res.append(actual)
-            }
+            res.append(event)
         }
         return res
     }

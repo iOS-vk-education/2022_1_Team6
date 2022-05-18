@@ -11,7 +11,7 @@ protocol NetworkDelegate {
     func authorise(login: String, password: String, completion: @escaping (Result<User, Error>) -> Void)
     func register(login: String, email: String, password: String, name: String?, surname: String?,
                   completion: @escaping (Result<User, Error>) -> Void)
-    func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void)
+    func getAllEvents(completion: @escaping (Result<[Event], Error>) -> Void)
     func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func updateEvent(event: EventPostEdit, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func deleteEvent(eventId: String, completion: @escaping (Result<serverAnswer, Error>) -> Void)
@@ -119,7 +119,7 @@ final class NetworkModule: NetworkDelegate {
         }.resume()
     }
     
-    func getAllEvents(completion: @escaping (Result<[serverEvent], Error>) -> Void) {
+    func getAllEvents(completion: @escaping (Result<[Event], Error>) -> Void) {
         let url = URL(string: endpoint + "event/all")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

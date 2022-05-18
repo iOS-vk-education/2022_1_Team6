@@ -57,19 +57,9 @@ class EventEmbeded : Object {
     @Persisted var delta: Int64 = 0
 }
 
-class ServerEventEmbeded: Object {
-    @Persisted var meta: EventEmbeded?
-    @Persisted var actual: EventEmbeded?
-}
-
 struct serverEventsResponse : Codable {
     let message: String
-    let events: [serverEvent]
-}
-
-struct serverEvent: Codable {
-    let meta: Event
-    let actual: Event
+    let events: [Event]
 }
 
 struct serverAnswer: Codable {
