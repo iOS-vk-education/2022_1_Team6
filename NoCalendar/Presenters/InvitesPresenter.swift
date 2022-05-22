@@ -16,15 +16,19 @@ class InvitesPresenter {
     weak private var invitesDelegate : InvitesViewDelegate?
     private let invitesModel = InvitesModel()
     
-    init() {
-        print("Hello from month presenter !")
-    }
-    
     func setInvitesDelegate(delegate: InvitesViewDelegate?) {
         self.invitesDelegate = delegate;
     }
     
     func getInvites() {
         self.invitesModel.getInvites(okCallback: self.invitesDelegate?.addData)
+    }
+    
+    func acceptInvite(_ inviteId: String, at: IndexPath) {
+        print(inviteId)
+    }
+    
+    func deleteInvite(_ inviteId: String, at: IndexPath) {
+        print(inviteId)
     }
 }

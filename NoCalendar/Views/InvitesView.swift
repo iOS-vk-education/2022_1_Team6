@@ -35,23 +35,16 @@ class InvitesViewContoller: UIViewController, InvitesViewDelegate, UITableViewDe
         cell.textLabel?.text = self.data[indexPath.row].title + self.data[indexPath.row].author
         return cell
     }
-
-    // method to run when table view cell is tapped
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
-    }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        // action one
         let editAction = UITableViewRowAction(style: .default, title: "Принять", handler: { (action, indexPath) in
-            print("Edit tapped")
+            self.invitesPresenter.acceptInvite(self.data[indexPath.row].id, at: indexPath)
         })
         editAction.backgroundColor = UIColor.blue
 
-        // action two
         let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, indexPath) in
-            print("Delete tapped")
+            self.invitesPresenter.deleteInvite(self.data[indexPath.row].id, at: indexPath)
         })
         deleteAction.backgroundColor = UIColor.red
 
@@ -60,6 +53,7 @@ class InvitesViewContoller: UIViewController, InvitesViewDelegate, UITableViewDe
     
     func addData(invites: [Invite]) {
         self.data = invites
+        self.table.reloadData()
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
