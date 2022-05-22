@@ -14,6 +14,8 @@ protocol DatabaseDelegate {
     func getUser() -> UserEmbeded?
     func getToken() -> String
     func getEvents() -> Array<EventEmbeded>
+    func getActiveEvents() -> Array<EventEmbeded>
+    func getNotAcceptedEvents() -> Array<EventEmbeded>
     func saveEvents(events: [Event])
     func getEventsInSomePeriod(from: Int64, to: Int64) -> [EventEmbeded]
     func getEventById(Id: String) -> EventEmbeded
@@ -56,6 +58,32 @@ final class DatabaseModule : DatabaseDelegate {
         var res = [EventEmbeded]()
         for event in events {
             res.append(event)
+        }
+        return res
+    }
+    
+    func getActiveEvents() -> [EventEmbeded] {
+        let username = self.getUser()?.login
+        let realm = try! Realm()
+        let events = realm.objects(EventEmbeded.self)
+        var res = [EventEmbeded]()
+        for event in events {
+            if (event.active_members.contains(username!)) {
+                res.append(event)
+            }
+        }
+        return res
+    }
+    
+    func getNotAcceptedEvents() -> [EventEmbeded] {
+        let username = self.getUser()?.login
+        let realm = try! Realm()
+        let events = realm.objects(EventEmbeded.self)
+        var res = [EventEmbeded]()
+        for event in events {
+            if (!event.active_members.contains(username!)) {
+                res.append(event)
+            }
         }
         return res
     }

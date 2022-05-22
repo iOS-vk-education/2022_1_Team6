@@ -32,7 +32,10 @@ class InvitesViewContoller: UIViewController, InvitesViewDelegate, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = (self.table.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-        cell.textLabel?.text = self.data[indexPath.row].title + self.data[indexPath.row].author
+        cell.backgroundColor = .orange
+        cell.textLabel?.text = "Событие: " + self.data[indexPath.row].title +  " автор: " + self.data[indexPath.row].author
+        cell.textLabel?.font.withSize(20)
+        cell.textLabel?.textColor = .white
         return cell
     }
     
@@ -54,6 +57,11 @@ class InvitesViewContoller: UIViewController, InvitesViewDelegate, UITableViewDe
     func addData(invites: [Invite]) {
         self.data = invites
         self.table.reloadData()
+    }
+    
+    func deleteCell(_ at: IndexPath) {
+        data.remove(at: at.row)
+        table.deleteRows(at: [at], with: .fade)
     }
     
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {

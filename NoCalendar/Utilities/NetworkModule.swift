@@ -18,6 +18,7 @@ protocol NetworkDelegate {
     func getEvent(id: String, completion: @escaping (Result<Event, Error>) -> Void)
     func getInvites(completion: @escaping (Result<[String], Error>) -> Void)
     func acceptInvite(id: String, completion: @escaping (Result<String, Error>) -> Void)
+    func deleteInvite(id: String, completion: @escaping (Result<String, Error>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -124,7 +125,7 @@ final class NetworkModule: NetworkDelegate {
     }
     
     func getEvent(id: String, completion: @escaping (Result<Event, Error>) -> Void) {
-        let url = URL(string: endpoint + "event/" + id)!
+        let url = URL(string: endpoint + "event/one/" + id)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue(self.token, forHTTPHeaderField: "authorize")
@@ -193,6 +194,39 @@ final class NetworkModule: NetworkDelegate {
         let url = URL(string: endpoint + "event/accept/" + id)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.notFound ||
+                    response.statusCode == self.codes.unauthorized { // если 401 или 404 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        let evResponse = try decoder.decode(serverAcceptAnswer.self, from: data)
+                        completion(.success(evResponse.event_id ?? ""))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }.resume()
+    }
+    
+    func deleteInvite(id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let url = URL(string: endpoint + "event/delete/" + id)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
         request.addValue(self.token, forHTTPHeaderField: "authorize")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

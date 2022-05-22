@@ -15,6 +15,7 @@ class InvitesModel {
             switch result {
             case .success(let idArray):
                 DispatchQueue.main.async {
+                    print("INVITES", idArray	)
                     self.getEvents(invitesId: idArray, okCallback: okCallback)
                 }
             case .failure(let error):
@@ -29,6 +30,7 @@ class InvitesModel {
     func getEvents(invitesId: [String], okCallback: (([Invite]) -> Void)?) {
         var eventsInvitedTo:[Invite] = []
         for id in invitesId {
+            print(id)
             NetworkModule.shared.getEvent(id: id, completion: { [] result in
                 switch result {
                 case .success(let event):
@@ -47,5 +49,35 @@ class InvitesModel {
         }
     }
     
+    func acceptInvite(eventId: String, tablePos: IndexPath, okCallback: ((IndexPath) -> Void)?) {
+        NetworkModule.shared.acceptInvite(id: eventId, completion: { [] result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    okCallback?(tablePos)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let err = error as NSError
+                    print(err.code, "AAAAAAAAA")
+                }
+            }
+        })
+    }
     
+    func deleteInvite(eventId: String, tablePos: IndexPath, okCallback: ((IndexPath) -> Void)?) {
+        NetworkModule.shared.deleteInvite(id: eventId, completion: { [] result in
+            switch result {
+            case .success(_):
+                DispatchQueue.main.async {
+                    okCallback?(tablePos)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let err = error as NSError
+                    print(err.code, "AAAAAAAAA")
+                }
+            }
+        })
+    }
 }

@@ -10,6 +10,7 @@ import Foundation
 class MonthModel {
     private let codes = statusCodes()
     private var activeEvents = [EventEmbeded]()
+    private var notAcceptedEvents = [EventEmbeded]()
     private var todayEvents = [EventEmbeded]()
     
     func getHeaderInfo() -> (String, Int) {
@@ -30,9 +31,8 @@ class MonthModel {
             switch result {
             case .success(let eventArray):
                 DatabaseModule.shared.saveEvents(events: eventArray)
-                self.useSavedData()
                 DispatchQueue.main.async {
-                    okCallback?()
+                    self.useSavedData(okCallback: okCallback)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -50,19 +50,38 @@ class MonthModel {
     }
     
     func useSavedData(okCallback: (() -> Void)? = nil) {
-        self.activeEvents = DatabaseModule.shared.getEvents()
+        self.activeEvents = DatabaseModule.shared.getActiveEvents()
+        self.notAcceptedEvents = DatabaseModule.shared.getNotAcceptedEvents()
         self.getTodayEvents()
         okCallback?()
     }
     
     func getActiveEvents() -> [Date] {
+        let username = (DatabaseModule.shared.getUser()?.login)!
         let today = Date()
         let todayMinusYear = Calendar.current.date(byAdding: .year, value: -1, to: today)!
         let todayPlusYear = Calendar.current.date(byAdding: .year, value: 1, to: today)!
         let events = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayMinusYear.timeIntervalSince1970), to: Int64(todayPlusYear.timeIntervalSince1970))
         var res = [Date]()
         for event in events {
-            res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            if (event.active_members.contains(username)) {
+                res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            }
+        }
+        return res
+    }
+    
+    func getNotAcceptedEvents() -> [Date] {
+        let username = (DatabaseModule.shared.getUser()?.login)!
+        let today = Date()
+        let todayMinusYear = Calendar.current.date(byAdding: .year, value: -1, to: today)!
+        let todayPlusYear = Calendar.current.date(byAdding: .year, value: 1, to: today)!
+        let events = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayMinusYear.timeIntervalSince1970), to: Int64(todayPlusYear.timeIntervalSince1970))
+        var res = [Date]()
+        for event in events {
+            if (!event.active_members.contains(username)) {
+                res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            }
         }
         return res
     }

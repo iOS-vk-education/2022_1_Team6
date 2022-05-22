@@ -26,7 +26,6 @@ class EventModel {
     ]
     
     func validateEvent(_ date: Date, _ title: String, _ time: String, _ delta: String, _ description: String, _ members: [String], okCallback: (() -> Void)?, failCallBack: ((newEventErrors) -> Void)?) {
-        print("VALIDATE", date, time)
         if title == "" {
             failCallBack?(newEventErrors.noTitle)
         }
@@ -51,8 +50,6 @@ class EventModel {
             isRegular = true
             delta = self.delta
         }
-        print(editMode, "TOKEN ID")
-        
         if editMode != "" {
             let event = EventPostEdit(id: editMode, title: self.title, description: self.description, timestamp: Int64(properDate!.timeIntervalSince1970), members: self.members, isRegular: isRegular, Delta: delta)
             NetworkModule.shared.updateEvent(event: event, completion: { [] result in

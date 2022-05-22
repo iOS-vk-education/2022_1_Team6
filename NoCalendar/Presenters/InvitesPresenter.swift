@@ -10,6 +10,7 @@ import Foundation
 
 protocol InvitesViewDelegate: NSObjectProtocol {
     func addData(invites: [Invite])
+    func deleteCell(_ at: IndexPath)
 }
 
 class InvitesPresenter {
@@ -25,10 +26,10 @@ class InvitesPresenter {
     }
     
     func acceptInvite(_ inviteId: String, at: IndexPath) {
-        print(inviteId)
+        self.invitesModel.acceptInvite(eventId: inviteId, tablePos: at, okCallback: self.invitesDelegate?.deleteCell)
     }
     
     func deleteInvite(_ inviteId: String, at: IndexPath) {
-        print(inviteId)
+        self.invitesModel.deleteInvite(eventId: inviteId, tablePos: at, okCallback: self.invitesDelegate?.deleteCell)
     }
 }

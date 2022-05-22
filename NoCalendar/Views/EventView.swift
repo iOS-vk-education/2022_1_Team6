@@ -18,6 +18,8 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBOutlet weak var newMemberInput: UITextField!
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var AuthorLabel: UILabel!
+    @IBOutlet weak var AddNewMemberField: UIView!
     
     private let eventPresenter = EventPresenter()
     private let sbNames = StoryBoardsNames()
@@ -41,6 +43,7 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AuthorLabel.isHidden = true
         self.eventPresenter.setEventDelegate(delegate: self)
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
@@ -200,7 +203,14 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         self.dateInput.text = self.formateDate(date: Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
         self.desricptionField.text = event.desc
         self.deltaInput.text = self.reverseDeltaData[event.delta]
-        self.memberList = Array(event.members).filter {$0 != username}
+        if (event.author != username) {
+            self.deleteButton.isHidden = true
+            self.AddButton.isHidden = true
+            self.AuthorLabel.isHidden = false
+            self.AuthorLabel.text = "Автор: " + event.author
+            self.AddNewMemberField.isHidden = true
+        }
+        self.memberList = Array(event.active_members).filter {$0 != username}
         self.memberTable.reloadData()
     }
     
