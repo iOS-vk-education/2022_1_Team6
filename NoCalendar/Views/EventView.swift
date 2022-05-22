@@ -78,20 +78,15 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell:UITableViewCell = (self.memberTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-
         cell.textLabel?.text = self.memberList[indexPath.row]
-
         return cell
     }
 
     // this method handles row deletion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // remove the item from the data model
             memberList.remove(at: indexPath.row)
-            // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -158,9 +153,11 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     
     @IBAction func didPressAddMember(_ sender: Any) {
         if let newMember = self.newMemberInput.text {
-            memberList.append(newMember)
-            memberTable.reloadData()
-            self.newMemberInput.text = ""
+            if newMember.count > 0 {
+                memberList.append(newMember)
+                memberTable.reloadData()
+                self.newMemberInput.text = ""
+            }
         }
     }
     func invalidEvent(error: newEventErrors) {

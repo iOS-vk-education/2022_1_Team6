@@ -69,8 +69,10 @@ class MonthModel {
     
     private func getTodayEvents() {
         let today = Date()
+        let todayComponents = Calendar.current.dateComponents([.day, .year, .month], from: today)
+        let todayBegin = Calendar.current.date(from: todayComponents)
         let todaysEnd = Calendar.current.date(bySetting: .hour, value: 23, of: today)!
         let todayPlusDay = Calendar.current.date(bySetting: .minute, value: 59, of: todaysEnd)!
-        self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(today.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
+        self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayBegin!.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
     }
 }

@@ -51,6 +51,7 @@ struct StoryBoardsNames {
     let settings = "Settings"
     let day = "SingleDay"
     let event = "Event"
+    let invites = "Invites"
 }
 
 struct UiControllerNames {
@@ -60,6 +61,7 @@ struct UiControllerNames {
     let settings = "Settings"
     let day = "SingleDay"
     let event = "Event"
+    let invites = "Invites"
 }
 
 struct statusCodes {

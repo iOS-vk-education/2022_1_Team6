@@ -47,6 +47,10 @@
 		FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90B280C74350033A055 /* UserTypes.swift */; };
 		FCBAC90E280C76B90033A055 /* EventTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90D280C76B90033A055 /* EventTypes.swift */; };
 		FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC915280C802F0033A055 /* AppDelegate.swift */; };
+		FCFFD6A3283A6BBA0021E1C4 /* Invites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */; };
+		FCFFD6A5283A6C730021E1C4 /* InvitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */; };
+		FCFFD6A7283A6C7D0021E1C4 /* InvitesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */; };
+		FCFFD6A9283A6C8C0021E1C4 /* InvitesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +125,10 @@
 		FCBAC915280C802F0033A055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCBAC917280C80560033A055 /* Month.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Month.storyboard; sourceTree = "<group>"; };
 		FCBAC918280C80570033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invites.storyboard; sourceTree = "<group>"; };
+		FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesView.swift; sourceTree = "<group>"; };
+		FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesModel.swift; sourceTree = "<group>"; };
+		FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,7 @@
 				FC3FD9CE280C83170057DBAB /* Settings.storyboard */,
 				FCBAC918280C80570033A055 /* SignUp.storyboard */,
 				FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */,
+				FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */,
 				FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */,
 				FCA87725281F315000B23CD6 /* Event.storyboard */,
 			);
@@ -215,6 +224,7 @@
 				FC3FD9D8280C856C0057DBAB /* SettingsView.swift */,
 				FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */,
 				FCA87727281F3A6000B23CD6 /* EventView.swift */,
+				FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +238,7 @@
 				FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */,
 				FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */,
 				FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */,
+				FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -241,6 +252,7 @@
 				FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */,
 				FCA87723281EF9C800B23CD6 /* SingleDayModel.swift */,
 				FCA8772B281F3A9000B23CD6 /* EventModel.swift */,
+				FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +390,7 @@
 			files = (
 				FCAAB7592822F71E00AEC1E2 /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */,
+				FCFFD6A3283A6BBA0021E1C4 /* Invites.storyboard in Resources */,
 				FCA87726281F315000B23CD6 /* Event.storyboard in Resources */,
 				FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */,
 				FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */,
@@ -421,10 +434,13 @@
 				FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */,
 				FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */,
 				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
+				FCFFD6A9283A6C8C0021E1C4 /* InvitesPresenter.swift in Sources */,
 				FC3FD9D3280C84360057DBAB /* MonthPresenter.swift in Sources */,
 				FC3FD9D5280C846F0057DBAB /* SettingsModel.swift in Sources */,
 				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
+				FCFFD6A7283A6C7D0021E1C4 /* InvitesModel.swift in Sources */,
+				FCFFD6A5283A6C730021E1C4 /* InvitesView.swift in Sources */,
 				FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */,
 				FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */,
 				FCA87724281EF9C800B23CD6 /* SingleDayModel.swift in Sources */,
