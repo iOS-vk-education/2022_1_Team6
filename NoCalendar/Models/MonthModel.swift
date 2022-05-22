@@ -74,5 +74,6 @@ class MonthModel {
         let todaysEnd = Calendar.current.date(bySetting: .hour, value: 23, of: today)!
         let todayPlusDay = Calendar.current.date(bySetting: .minute, value: 59, of: todaysEnd)!
         self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayBegin!.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
+        print(todayEvents, "TODAY")
     }
 }

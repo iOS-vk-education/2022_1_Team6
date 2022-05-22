@@ -66,6 +66,11 @@ struct serverAnswer: Codable {
     let message: String
 }
 
+struct serverEventAnswer: Codable {
+    let message: String
+    let event: Event
+}
+
 struct singleDayTimeAndEvent {
     var time: String
     var eventName: String

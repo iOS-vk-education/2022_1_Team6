@@ -9,6 +9,7 @@ import Foundation
 
 
 protocol InvitesViewDelegate: NSObjectProtocol {
+    func addData(invites: [Invite])
 }
 
 class InvitesPresenter {
@@ -21,5 +22,9 @@ class InvitesPresenter {
     
     func setInvitesDelegate(delegate: InvitesViewDelegate?) {
         self.invitesDelegate = delegate;
+    }
+    
+    func getInvites() {
+        self.invitesModel.getInvites(okCallback: self.invitesDelegate?.addData)
     }
 }

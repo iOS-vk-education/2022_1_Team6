@@ -21,8 +21,8 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.monthPresenter.setMonthViewDelegate(monthView: self)
-        self.monthPresenter.getEvents()
         self.calendar.delegate = self
+        self.monthPresenter.getEvents()
         self.calendar.scrollDirection = .vertical
         self.calendar.appearance.headerDateFormat = "MMMM yyyy"
         self.calendar.locale = NSLocale.init(localeIdentifier: "ru_RU") as Locale
@@ -32,8 +32,8 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
     override func shouldAutomaticallyForwardRotationMethods() -> Bool {
         return false
     }
-    
-    
+
+
     func setHeader(username: String, active: Int) {
         self.header.text = """
             С возвращением, \(username),

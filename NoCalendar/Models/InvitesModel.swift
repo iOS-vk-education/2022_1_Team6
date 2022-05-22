@@ -8,4 +8,7 @@
 import Foundation
 
 class InvitesModel {
+    func getInvites(okCallback: (([Invite]) -> Void)?) {
+        
+    }
 }

@@ -15,6 +15,9 @@ protocol NetworkDelegate {
     func postEvent(event: EventPost, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func updateEvent(event: EventPostEdit, completion: @escaping (Result<EventAnswer, Error>) -> Void)
     func deleteEvent(eventId: String, completion: @escaping (Result<serverAnswer, Error>) -> Void)
+    func getEvent(id: String, completion: @escaping (Result<Event, Error>) -> Void)
+    func getInvites(completion: @escaping (Result<[String], Error>) -> Void)
+    func acceptInvite(id: String, completion: @escaping (Result<String, Error>) -> Void)
 }
 
 enum NetworkError: Error {
@@ -24,6 +27,7 @@ enum NetworkError: Error {
 
 
 final class NetworkModule: NetworkDelegate {
+    
     static let shared: NetworkDelegate = NetworkModule()
     private var endpoint = "http://89.19.190.83/api/"
     private let codes = statusCodes()
@@ -114,6 +118,105 @@ final class NetworkModule: NetworkDelegate {
                     self.setToken(response: response)
                     let tmpUser = User(login: login, email: email, name: name, surname: surname, password: password)
                     completion(.success(tmpUser))
+                }
+            }
+        }.resume()
+    }
+    
+    func getEvent(id: String, completion: @escaping (Result<Event, Error>) -> Void) {
+        let url = URL(string: endpoint + "event/" + id)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.notFound ||
+                    response.statusCode == self.codes.unauthorized { // если 401 или 404 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        let evResponse = try decoder.decode(serverEventAnswer.self, from: data)
+                        completion(.success(evResponse.event))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }.resume()
+    }
+    
+    func getInvites(completion: @escaping (Result<[String], Error>) -> Void) {
+        let url = URL(string: endpoint + "event/invites")!
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.notFound ||
+                    response.statusCode == self.codes.unauthorized { // если 401 или 404 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        let evResponse = try decoder.decode(serverInviteAnswer.self, from: data)
+                        completion(.success(evResponse.invites))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }.resume()
+    }
+    
+    func acceptInvite(id: String, completion: @escaping (Result<String, Error>) -> Void) {
+        let url = URL(string: endpoint + "event/accept/" + id)!
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue(self.token, forHTTPHeaderField: "authorize")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            guard let data = data else {
+                completion(.failure(NetworkError.emptyData))
+                return
+            }
+
+            if let response = response as? HTTPURLResponse {
+                if response.statusCode == self.codes.notFound ||
+                    response.statusCode == self.codes.unauthorized { // если 401 или 404 сразу отправляем ошибку
+                    let errorTemp = NSError(domain:"", code:response.statusCode, userInfo:nil)
+                    completion(.failure(errorTemp))
+                } else {
+                    let decoder = JSONDecoder()
+                    do {
+                        let evResponse = try decoder.decode(serverAcceptAnswer.self, from: data)
+                        completion(.success(evResponse.event_id ?? ""))
+                    } catch let error {
+                        completion(.failure(error))
+                    }
                 }
             }
         }.resume()
