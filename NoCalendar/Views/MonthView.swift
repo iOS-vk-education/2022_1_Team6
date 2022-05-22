@@ -23,6 +23,7 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
         super.viewDidLoad()
         self.monthPresenter.setMonthViewDelegate(monthView: self)
         self.calendar.delegate = self
+        self.monthPresenter.getEvents()
         self.calendar.scrollDirection = .vertical
         self.calendar.appearance.headerDateFormat = "MMMM yyyy"
         self.calendar.locale = NSLocale.init(localeIdentifier: "ru_RU") as Locale
