@@ -44,12 +44,12 @@ class InvitesViewContoller: UIViewController, InvitesViewDelegate, UITableViewDe
         let editAction = UITableViewRowAction(style: .default, title: "Принять", handler: { (action, indexPath) in
             self.invitesPresenter.acceptInvite(self.data[indexPath.row].id, at: indexPath)
         })
-        editAction.backgroundColor = UIColor.blue
+        editAction.backgroundColor = UIColor.systemTeal
 
-        let deleteAction = UITableViewRowAction(style: .default, title: "Удалить", handler: { (action, indexPath) in
+        let deleteAction = UITableViewRowAction(style: .default, title: "Отклонить", handler: { (action, indexPath) in
             self.invitesPresenter.deleteInvite(self.data[indexPath.row].id, at: indexPath)
         })
-        deleteAction.backgroundColor = UIColor.red
+        deleteAction.backgroundColor = UIColor.purple
 
         return [deleteAction, editAction]
     }

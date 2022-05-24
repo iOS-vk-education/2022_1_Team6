@@ -224,9 +224,9 @@ final class NetworkModule: NetworkDelegate {
     }
     
     func deleteInvite(id: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let url = URL(string: endpoint + "event/delete/" + id)!
+        let url = URL(string: endpoint + "event/reject/" + id)!
         var request = URLRequest(url: url)
-        request.httpMethod = "DELETE"
+        request.httpMethod = "POST"
         request.addValue(self.token, forHTTPHeaderField: "authorize")
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

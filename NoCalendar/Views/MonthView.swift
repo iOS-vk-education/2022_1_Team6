@@ -41,7 +41,7 @@ class MonthViewController: UIViewController, MonthViewDelegate, FSCalendarDataSo
 
     func setHeader(username: String, active: Int) {
         self.header.text = """
-            С возвращением, \(username),
+            С возвращением, \(username).
             Сегодня у вас \(active) дел.
             """
     }
