@@ -10,14 +10,15 @@ import Foundation
 class MonthModel {
     private let codes = statusCodes()
     private var activeEvents = [EventEmbeded]()
+    private var notAcceptedEvents = [EventEmbeded]()
     private var todayEvents = [EventEmbeded]()
     
     func getHeaderInfo() -> (String, Int) {
         let activeEventsCount = self.todayEvents.count
         let user = DatabaseModule.shared.getUser()
-        if let name = user?.name, let surname = user?.surname {
-            if (name.count > 0 && surname.count > 0) {
-                return (name + " " + surname, activeEventsCount)
+        if let name = user?.name {
+            if (name.count > 0) {
+                return (name, activeEventsCount)
             } else if let login = user?.login {
                 return (login, activeEventsCount)
             }
@@ -29,11 +30,9 @@ class MonthModel {
         NetworkModule.shared.getAllEvents(completion: { [] result in
             switch result {
             case .success(let eventArray):
-                print("AAAAA")
                 DatabaseModule.shared.saveEvents(events: eventArray)
-                self.useSavedData()
                 DispatchQueue.main.async {
-                    okCallback?()
+                    self.useSavedData(okCallback: okCallback)
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -51,26 +50,49 @@ class MonthModel {
     }
     
     func useSavedData(okCallback: (() -> Void)? = nil) {
-        self.activeEvents = DatabaseModule.shared.getEvents()
+        self.activeEvents = DatabaseModule.shared.getActiveEvents()
+        self.notAcceptedEvents = DatabaseModule.shared.getNotAcceptedEvents()
         self.getTodayEvents()
         okCallback?()
     }
     
     func getActiveEvents() -> [Date] {
+        let username = (DatabaseModule.shared.getUser()?.login)!
         let today = Date()
         let todayMinusYear = Calendar.current.date(byAdding: .year, value: -1, to: today)!
         let todayPlusYear = Calendar.current.date(byAdding: .year, value: 1, to: today)!
         let events = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayMinusYear.timeIntervalSince1970), to: Int64(todayPlusYear.timeIntervalSince1970))
         var res = [Date]()
         for event in events {
-            res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            if (event.active_members.contains(username)) {
+                res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            }
+        }
+        return res
+    }
+    
+    func getNotAcceptedEvents() -> [Date] {
+        let username = (DatabaseModule.shared.getUser()?.login)!
+        let today = Date()
+        let todayMinusYear = Calendar.current.date(byAdding: .year, value: -1, to: today)!
+        let todayPlusYear = Calendar.current.date(byAdding: .year, value: 1, to: today)!
+        let events = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayMinusYear.timeIntervalSince1970), to: Int64(todayPlusYear.timeIntervalSince1970))
+        var res = [Date]()
+        for event in events {
+            if (!event.active_members.contains(username)) {
+                res.append(Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+            }
         }
         return res
     }
     
     private func getTodayEvents() {
         let today = Date()
-        let todayPlusDay = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-        self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(today.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
+        let todayComponents = Calendar.current.dateComponents([.day, .year, .month], from: today)
+        let todayBegin = Calendar.current.date(from: todayComponents)
+        let todaysEnd = Calendar.current.date(bySetting: .hour, value: 23, of: today)!
+        let todayPlusDay = Calendar.current.date(bySetting: .minute, value: 59, of: todaysEnd)!
+        self.todayEvents = DatabaseModule.shared.getEventsInSomePeriod(from: Int64(todayBegin!.timeIntervalSince1970), to: Int64(todayPlusDay.timeIntervalSince1970))
+        print(todayEvents, "TODAY")
     }
 }

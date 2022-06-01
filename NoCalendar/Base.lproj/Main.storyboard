@@ -119,13 +119,39 @@
                                     <segue destination="ZNc-Wk-01k" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="sdp-ue-IMv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXL-zX-RIr">
+                                <rect key="frame" x="55" y="554" width="280" height="40"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="1" blue="0.0" alpha="0.60528766560000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="VDM-Kv-md3"/>
+                                    <constraint firstAttribute="height" constant="40" id="XBv-5W-Pug"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Войти"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Войти через вк" cornerStyle="capsule" titleAlignment="center">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="DidPressVkButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mu5-Y8-Eqj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wNT-Hi-6so"/>
                         <color key="backgroundColor" red="0.20727206663405251" green="0.17767069730776214" blue="0.39996852838631836" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="rVv-eX-DQV" firstAttribute="top" secondItem="x9E-pX-t85" secondAttribute="bottom" constant="40" id="2gY-04-8hz"/>
+                            <constraint firstItem="x9E-pX-t85" firstAttribute="top" secondItem="gXL-zX-RIr" secondAttribute="bottom" constant="21.329999999999998" id="3sh-HB-ibO"/>
                             <constraint firstItem="1k8-Bo-Jck" firstAttribute="firstBaseline" secondItem="lY2-db-Jcm" secondAttribute="baseline" constant="15" id="5tK-iX-axd"/>
+                            <constraint firstItem="gXL-zX-RIr" firstAttribute="leading" secondItem="wNT-Hi-6so" secondAttribute="leading" constant="55" id="5v3-Ha-T2X"/>
                             <constraint firstItem="lY2-db-Jcm" firstAttribute="firstBaseline" secondItem="2JY-S6-n31" secondAttribute="baseline" constant="15" id="6Kt-iD-fMd"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="6pi-5z-uni"/>
                             <constraint firstItem="x9E-pX-t85" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="Brm-kq-OAd"/>
@@ -134,6 +160,8 @@
                             <constraint firstItem="mlF-PZ-A3c" firstAttribute="centerX" secondItem="wNT-Hi-6so" secondAttribute="centerX" id="H94-nV-gLO"/>
                             <constraint firstItem="dZd-32-JX9" firstAttribute="top" secondItem="1k8-Bo-Jck" secondAttribute="bottom" constant="30" id="Im2-7F-08L"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="LAR-lU-UjG"/>
+                            <constraint firstItem="wNT-Hi-6so" firstAttribute="trailing" secondItem="gXL-zX-RIr" secondAttribute="trailing" constant="55" id="MVu-8n-fPS"/>
+                            <constraint firstItem="gXL-zX-RIr" firstAttribute="top" secondItem="dZd-32-JX9" secondAttribute="bottom" constant="35" id="Reg-rO-oK2"/>
                             <constraint firstItem="tze-oA-f3G" firstAttribute="trailing" secondItem="mlF-PZ-A3c" secondAttribute="trailing" id="W6T-D7-fVr"/>
                             <constraint firstItem="2JY-S6-n31" firstAttribute="centerX" secondItem="mlF-PZ-A3c" secondAttribute="centerX" id="XZe-Ca-Ys2"/>
                             <constraint firstItem="2JY-S6-n31" firstAttribute="top" secondItem="mlF-PZ-A3c" secondAttribute="bottom" constant="25" id="Xty-Pr-RX2"/>

@@ -1,6 +1,7 @@
 import UIKit
+import SwiftyVK
 
-class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDelegate, SwiftyVKDelegate {
     @IBOutlet var LoginView: UIView!
     @IBOutlet weak var LoginButton: UIButton!
     @IBOutlet weak var LoginInput: UITextField!
@@ -10,9 +11,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
     private let loginPresenter = LoginPresenter()
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
-
+    private let scopes: Scopes = [.email]
+    private let appId = "8163032"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        VK.setUp(appId: appId, delegate: self)
         ValidationHint.isHidden = true
         loginPresenter.setloginViewDelegate(loginDelegate: self)
         self.LoginInput.delegate = self
@@ -25,8 +30,47 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
 
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
-
         view.addGestureRecognizer(tap)
+    }
+    
+    func vkTokenCreated(for sessionId: String, info: [String : String]) {
+        print("token created in session \(sessionId) with info \(info)")
+    }
+    
+    func vkNeedsScopes(for sessionId: String) -> Scopes {
+        return scopes
+    }
+    
+    func vkNeedToPresent(viewController: VKViewController) {
+        if let rootController = UIApplication.shared.keyWindow?.rootViewController {
+            rootController.present(viewController, animated: true)
+        }
+    }
+    
+    @IBAction func DidPressVkButton(_ sender: Any) {
+        VK.sessions.default.logIn(
+            onSuccess: { info in
+                print("SwiftyVK: success authorize with", info)
+                VK.API.Account.getProfileInfo(.empty)
+                            .onSuccess {
+                                let response = try JSONSerialization.jsonObject(with: $0)
+                                self.loginPresenter.oauth(response)
+                            }.send()
+            },
+            onError: { err in
+                VK.API.Account.getProfileInfo(.empty)
+                            .onSuccess {
+                                let response = try JSONSerialization.jsonObject(with: $0)
+                                self.loginPresenter.oauth(response)
+                            }
+                            .onError {_ in 
+                                DispatchQueue.main.async {
+                                    self.loginValidate(errorCode: .VKError)
+                                }
+                            }.send()
+
+            }
+        )
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -73,6 +117,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LoginViewDeleg
         switch errorCode {
         case .shortUsername:
             ValidationHint.text = "Невалидный логин"
+            ValidationHint.isHidden = false
+        case .VKError:
+            ValidationHint.text = "Проблема с авторизацией через VK"
             ValidationHint.isHidden = false
         case .shortPassword:
             ValidationHint.text = "Невалидный пароль"

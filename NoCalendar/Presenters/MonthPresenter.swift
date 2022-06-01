@@ -11,6 +11,7 @@ protocol MonthViewDelegate: NSObjectProtocol {
     func setHeader(username: String, active: Int)
     func notAuthorised()
     func setActiveEvents(activeEventsDates: [Date])
+    func setNoAcceptedEvents(events: [Date])
 }
 
 class MonthPresenter {
@@ -33,11 +34,17 @@ class MonthPresenter {
     func getInfo() {
         self.getHeader()
         self.getActiveEvents()
+        self.getNotAcceptedEvents()
     }
     
     func getActiveEvents() {
         let activeEventsDate = self.monthModel.getActiveEvents()
         monthDelegate?.setActiveEvents(activeEventsDates: activeEventsDate)
+    }
+    
+    func getNotAcceptedEvents() {
+        let events = self.monthModel.getNotAcceptedEvents()
+        monthDelegate?.setNoAcceptedEvents(events: events)
     }
     
     func getHeader() {

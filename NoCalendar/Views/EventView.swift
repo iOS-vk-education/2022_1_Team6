@@ -16,19 +16,34 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBOutlet weak var deltaInput: UITextField!
     @IBOutlet weak var memberTable: UITableView!
     @IBOutlet weak var newMemberInput: UITextField!
+    @IBOutlet weak var AddButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var AuthorLabel: UILabel!
+    @IBOutlet weak var AddNewMemberField: UIView!
     
     private let eventPresenter = EventPresenter()
     private let sbNames = StoryBoardsNames()
     private let vcNames = UiControllerNames()
     
     private let deltaData = ["Никогда", "Каждый день", "Каждую неделю", "Каждые 2 недели", "Каждый месяц"]
+    private let reverseDeltaData: [Int64: String] = [
+        0: "Никогда",
+        3600: "Каждый час",
+        86400: "Каждый день",
+        604800: "Каждую неделю",
+        2 * 604800: "Каждые 2 недели",
+        86400 * 30: "Каждый месяц" 
+    ]
     private var dayDate = Date()
     private var memberList = [String]()
+    private var isEdit = false
+    private var eventEditId = ""
     let cellReuseIdentifier = "cell"
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        AuthorLabel.isHidden = true
         self.eventPresenter.setEventDelegate(delegate: self)
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .time
@@ -50,26 +65,31 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
         memberTable.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if isEdit {
+            self.AddButton.setTitle("Изменить", for: .normal)
+            self.fillInputs()
+        } else {
+            self.deleteButton.isHidden = true
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memberList.count
     }
     
     // create a cell for each table view row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell:UITableViewCell = (self.memberTable.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell?)!
-
         cell.textLabel?.text = self.memberList[indexPath.row]
-
         return cell
     }
 
     // this method handles row deletion
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // remove the item from the data model
             memberList.remove(at: indexPath.row)
-            // delete the table view row
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -129,11 +149,18 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     @IBAction func startEditInDate(_ sender: Any) {
         self.dateInput.backgroundColor = .systemBackground
     }
+
+    @IBAction func didPressDelete(_ sender: Any) {
+        self.eventPresenter.deleteEvent(eventId: self.eventEditId)
+    }
     
     @IBAction func didPressAddMember(_ sender: Any) {
         if let newMember = self.newMemberInput.text {
-            memberList.append(newMember)
-            memberTable.reloadData()
+            if newMember.count > 0 {
+                memberList.append(newMember)
+                memberTable.reloadData()
+                self.newMemberInput.text = ""
+            }
         }
     }
     func invalidEvent(error: newEventErrors) {
@@ -156,15 +183,43 @@ class EventViewContoller: UIViewController, EventDelegate, UIPickerViewDataSourc
     }
     
     func notifyOfError(error: newEventErrors) {
-        let alert = UIAlertController(title: "Ошибка создания события", message: "Cервер вернул ошибку \(error)", preferredStyle: .alert)
-         
+        var alert: UIAlertController
+        if error == .noRights {
+            alert = UIAlertController(title: "Ошибка удаления события", message: "Недостаточно прав для совершения данного действия", preferredStyle: .alert)
+        } else {
+            alert = UIAlertController(title: "Ошибка создания события", message: "Cервер вернул ошибку \(error)", preferredStyle: .alert)
+        }
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
-         
         self.present(alert, animated: true)
     }
     
+    func setEditMode(eventId: String) {
+        self.isEdit = true
+        self.eventEditId = eventId
+    }
+    
+    func fillInputsWithEvent(event: EventEmbeded, _ username: String) {
+        self.titleInput.text = event.title
+        self.dateInput.text = self.formateDate(date: Date(timeIntervalSince1970: TimeInterval(event.timestamp)))
+        self.desricptionField.text = event.desc
+        self.deltaInput.text = self.reverseDeltaData[event.delta]
+        if (event.author != username) {
+            self.deleteButton.isHidden = true
+            self.AddButton.isHidden = true
+            self.AuthorLabel.isHidden = false
+            self.AuthorLabel.text = "Автор: " + event.author
+            self.AddNewMemberField.isHidden = true
+        }
+        self.memberList = Array(event.active_members).filter {$0 != username}
+        self.memberTable.reloadData()
+    }
+    
+    private func fillInputs() {
+        self.eventPresenter.fillInputs(eventId: self.eventEditId)
+    }
+    
     @IBAction func didPressAddButton(_ sender: Any) {
-        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", self.memberList)
+        self.eventPresenter.postEvent(self.dayDate, self.titleInput.text ?? "", self.dateInput.text ?? "", self.deltaInput.text ?? "", self.desricptionField.text ?? "", self.memberList, self.eventEditId)
     }
     
     private func goToDayContoller() {

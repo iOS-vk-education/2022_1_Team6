@@ -23,6 +23,7 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
         self.singleDayPresenter.setSingleDayDelegate(delegate: self)
         self.dateFormatter.dateFormat = "d MMMM y, EEEE"
         self.table.dataSource = self
+        self.table.allowsSelection = true
         self.updateLayout(with: self.view.frame.size)
         self.initData()
     }
@@ -44,12 +45,12 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
         for event in events {
             let eventDate = Date(timeIntervalSince1970: TimeInterval(event.timestamp))
             let hour = Calendar.current.component(.hour, from: eventDate)
-            print(hour)
             if let index = self.data.firstIndex(where: {
                 $0.time == "\(hour):00" || $0.time == "0\(hour):00"
                 
             }) {
                 self.data[index].eventName = event.title
+                self.data[index].eventId = event.id
             }
         }
         print(self.data)
@@ -65,13 +66,23 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
        }
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.table.dequeueReusableCell(withIdentifier: "TableViewCell")
         let timeLabel = cell?.contentView.viewWithTag(1) as! UILabel
         timeLabel.text = self.data[indexPath.row].time
-        let eventLabel = cell?.contentView.viewWithTag(2) as! UILabel
-        eventLabel.text = self.data[indexPath.row].eventName
+        let eventLabelBtn = cell?.contentView.viewWithTag(2) as! EventButton
+        eventLabelBtn.setTitle(self.data[indexPath.row].eventName, for: .normal)
+        eventLabelBtn.titleLabel?.font = .boldSystemFont(ofSize: 20)
+        eventLabelBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        eventLabelBtn.id = self.data[indexPath.row].eventId
         return cell!
+    }
+    
+    @objc func buttonAction(sender: EventButton!) {
+        if sender.id != "" {
+            goToEventEditContoller(eventId: sender.id)
+        }
     }
     
     @IBAction func DidPressAddButton(_ sender: Any) {
@@ -105,4 +116,17 @@ class SingleDayViewController: UIViewController, SingleDayDelegate, UITableViewD
         resultViewController.setDayDate(date: self.date)
         self.present(resultViewController, animated: true, completion:nil)
     }
+    
+    private func goToEventEditContoller(eventId: String) {
+        print(eventId)
+        let storyBoard : UIStoryboard = UIStoryboard(name: sbNames.event, bundle:nil)
+        let resultViewController = storyBoard.instantiateViewController(withIdentifier: vcNames.event) as! EventViewContoller
+        resultViewController.setDayDate(date: self.date)
+        resultViewController.setEditMode(eventId: eventId)
+        self.present(resultViewController, animated: true, completion:nil)
+    }
+}
+
+class EventButton : UIButton {
+    var id = String()
 }

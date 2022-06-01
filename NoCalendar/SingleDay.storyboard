@@ -28,38 +28,42 @@
                                 <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="ry2-nC-vdj" customClass="TableViewCell" customModule="NoCalendar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="44.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="38.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ry2-nC-vdj" id="XSa-jx-K5e">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="44.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="38.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-c2-d9G">
-                                                    <rect key="frame" x="149" y="9.9999999999999982" width="221" height="24.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="221" id="Bgi-du-pn9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B0s-dB-Zad">
-                                                    <rect key="frame" x="6" y="6.9999999999999982" width="80" height="30.333333333333329"/>
+                                                    <rect key="frame" x="6" y="6.9999999999999982" width="80" height="24.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="NQ3-Dc-xP5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtL-JS-4Yf" customClass="EventButton" customModule="NoCalendar" customModuleProvider="target">
+                                                    <rect key="frame" x="116" y="0.0" width="274" height="38.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Event Name">
+                                                        <color key="titleColor" systemColor="labelColor"/>
+                                                    </state>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Event Name">
+                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemTealColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="4Kj-c2-d9G" secondAttribute="bottom" constant="10" id="H1E-gP-i82"/>
+                                                <constraint firstItem="jtL-JS-4Yf" firstAttribute="leading" secondItem="B0s-dB-Zad" secondAttribute="trailing" constant="30" id="2lC-En-7Au"/>
+                                                <constraint firstItem="jtL-JS-4Yf" firstAttribute="top" secondItem="XSa-jx-K5e" secondAttribute="top" id="AAA-3z-whX"/>
                                                 <constraint firstItem="B0s-dB-Zad" firstAttribute="top" secondItem="XSa-jx-K5e" secondAttribute="top" constant="7" id="IIS-hp-okP"/>
+                                                <constraint firstAttribute="trailing" secondItem="jtL-JS-4Yf" secondAttribute="trailing" id="Qs5-kR-AIF"/>
                                                 <constraint firstItem="B0s-dB-Zad" firstAttribute="leading" secondItem="XSa-jx-K5e" secondAttribute="leading" constant="6" id="T7J-Da-nNj"/>
                                                 <constraint firstAttribute="bottom" secondItem="B0s-dB-Zad" secondAttribute="bottom" constant="7" id="XcP-kq-Nva"/>
-                                                <constraint firstItem="4Kj-c2-d9G" firstAttribute="top" secondItem="XSa-jx-K5e" secondAttribute="top" constant="10" id="YaC-nO-pCe"/>
-                                                <constraint firstAttribute="trailing" secondItem="4Kj-c2-d9G" secondAttribute="trailing" constant="20" symbolic="YES" id="ePS-4x-Pyb"/>
+                                                <constraint firstAttribute="bottom" secondItem="jtL-JS-4Yf" secondAttribute="bottom" id="bio-zW-xG6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -146,6 +150,9 @@
         <segue reference="1Uz-90-en2"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

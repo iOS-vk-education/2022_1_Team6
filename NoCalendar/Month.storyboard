@@ -16,32 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8y-bF-EII">
-                                <rect key="frame" x="238" y="742" width="132" height="38"/>
-                                <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Настройки">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <segue destination="edl-yq-XxT" kind="show" id="wvz-DV-Hfl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-Go-Yz3">
-                                <rect key="frame" x="20" y="742" width="107" height="38"/>
-                                <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Сегодня">
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="OnTodayButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u1R-pY-QHt"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B33-w5-bIO" customClass="FSCalendar">
-                                <rect key="frame" x="16" y="104" width="358" height="608"/>
+                                <rect key="frame" x="16" y="104" width="358" height="657"/>
                                 <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
@@ -106,9 +82,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="titleTextSize">
                                         <real key="value" value="21"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="eventDefaultColor">
-                                        <color key="value" systemColor="systemMintColor"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="qSm-YQ-as0"/>
@@ -121,19 +94,61 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" ambiguous="YES" selectionIndicatorImage=" " translatesAutoresizingMaskIntoConstraints="NO" id="dyM-kB-W8x">
+                                <rect key="frame" x="0.0" y="761" width="390" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items/>
+                                <color key="barTintColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tabBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-Go-Yz3">
+                                <rect key="frame" x="15" y="776" width="90" height="34"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Сегодня">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="OnTodayButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="u1R-pY-QHt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8y-bF-EII">
+                                <rect key="frame" x="274" y="776" width="111" height="34"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Настройки">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="edl-yq-XxT" kind="show" id="wvz-DV-Hfl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s3h-Zz-B0J">
+                                <rect key="frame" x="128.66666666666666" y="776" width="132.99999999999997" height="34"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Приглашения">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="WOF-Ln-GOo" kind="show" id="TJ2-9B-win"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.2072720666" green="0.17767069730000001" blue="0.39996852840000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eXm-Go-Yz3" secondAttribute="bottom" id="0Ue-zM-NuH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="B33-w5-bIO" secondAttribute="bottom" constant="49" id="1mK-f0-H9C"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="B33-w5-bIO" secondAttribute="trailing" constant="16" id="2aC-Wl-lsl"/>
                             <constraint firstItem="B33-w5-bIO" firstAttribute="top" secondItem="5u6-5J-eSN" secondAttribute="bottom" constant="10" id="3T8-o5-bva"/>
+                            <constraint firstItem="s3h-Zz-B0J" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="BGi-j4-l5Y"/>
+                            <constraint firstItem="A8y-bF-EII" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="WJT-9s-Py1"/>
                             <constraint firstItem="5u6-5J-eSN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="X23-Nu-M7M"/>
-                            <constraint firstItem="eXm-Go-Yz3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ezw-07-Nnb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="A8y-bF-EII" secondAttribute="trailing" constant="20" id="fhy-kP-yzT"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="A8y-bF-EII" secondAttribute="bottom" constant="30" id="ieZ-1D-19m"/>
+                            <constraint firstItem="dyM-kB-W8x" firstAttribute="top" secondItem="B33-w5-bIO" secondAttribute="bottom" id="aAi-5L-Ymc"/>
+                            <constraint firstItem="s3h-Zz-B0J" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="bL4-aD-K2b"/>
+                            <constraint firstItem="eXm-Go-Yz3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="h8J-LM-h8S"/>
                             <constraint firstItem="5u6-5J-eSN" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="n1d-xH-SMj"/>
-                            <constraint firstItem="A8y-bF-EII" firstAttribute="top" secondItem="B33-w5-bIO" secondAttribute="bottom" constant="30" id="pAK-Mb-0R9"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="eXm-Go-Yz3" secondAttribute="bottom" constant="30" id="s6p-Uz-TJt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="A8y-bF-EII" secondAttribute="trailing" constant="5" id="pKu-Nc-8K3"/>
                             <constraint firstItem="B33-w5-bIO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="t65-M8-AwZ"/>
                         </constraints>
                     </view>
@@ -147,6 +162,16 @@
             </objects>
             <point key="canvasLocation" x="44.615384615384613" y="56.161137440758289"/>
         </scene>
+        <!--Invites-->
+        <scene sceneID="6C6-wh-5aP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Invites" id="WOF-Ln-GOo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MUh-bA-e7w"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bzh-Cl-t7t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="-21"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="Xw6-RW-ZOv">
             <objects>
@@ -155,15 +180,13 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E13-nk-jkO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="780" y="57"/>
+            <point key="canvasLocation" x="779" y="77"/>
         </scene>
     </scenes>
     <resources>
+        <image name=" " width="128" height="128"/>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

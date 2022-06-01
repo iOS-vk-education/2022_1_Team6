@@ -14,6 +14,7 @@ enum loginErrors {
     case noSuchUser
     case passwordMismatch
     case noConnection
+    case VKError
 }
 
 enum RegErrors {
@@ -24,6 +25,7 @@ enum RegErrors {
     case passwordMismatch
     case userExist
     case noConnection
+    case VKError
 }
 
 enum EventErrors {
@@ -38,6 +40,7 @@ enum newEventErrors {
     case noDate
     case noDateAndTitle
     case badRequest
+    case noRights
     case noConnection
 }
 
@@ -48,6 +51,7 @@ struct StoryBoardsNames {
     let settings = "Settings"
     let day = "SingleDay"
     let event = "Event"
+    let invites = "Invites"
 }
 
 struct UiControllerNames {
@@ -57,13 +61,16 @@ struct UiControllerNames {
     let settings = "Settings"
     let day = "SingleDay"
     let event = "Event"
+    let invites = "Invites"
 }
 
 struct statusCodes {
     let ok = 200
     let badRequest = 400
+    let noRights = 403
     let unauthorized = 401
     let notFound = 404
+    let alreadyRegister = 409
 }
 
 let networkKeyString = "networkToken"

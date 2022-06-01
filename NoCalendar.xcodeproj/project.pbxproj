@@ -22,13 +22,15 @@
 		FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */; };
 		FC4FA79327FA157700483FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79127FA157700483FEF /* Main.storyboard */; };
 		FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79427FA157800483FEF /* Assets.xcassets */; };
-		FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */; };
 		FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC518D3B27FA34D1009552F6 /* AppUtility.swift */; };
 		FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1EF27FC67DF000DFC1D /* LoginView.swift */; };
 		FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */; };
 		FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F627FC6876000DFC1D /* LoginModel.swift */; };
 		FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */; };
 		FC74AC622817E511008FA4C8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = FC74AC612817E511008FA4C8 /* FSCalendar */; };
+		FC89DD98282AF49E00FEE085 /* SwiftyVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */; };
+		FC89DD99282AF49E00FEE085 /* SwiftyVK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC89DD9C282C413E00FEE085 /* Hasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC89DD9B282C413E00FEE085 /* Hasher.swift */; };
 		FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */; };
 		FCA8771E281EF8DE00B23CD6 /* SingleDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */; };
 		FCA87722281EF9B700B23CD6 /* SingleDayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */; };
@@ -37,6 +39,7 @@
 		FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87727281F3A6000B23CD6 /* EventView.swift */; };
 		FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */; };
 		FCA8772C281F3A9000B23CD6 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA8772B281F3A9000B23CD6 /* EventModel.swift */; };
+		FCAAB7592822F71E00AEC1E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */; };
 		FCBAC8FD280C2C4C0033A055 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FC280C2C4C0033A055 /* Constants.swift */; };
 		FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC8FE280C35920033A055 /* SignUpView.swift */; };
 		FCBAC901280C35A00033A055 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC900280C35A00033A055 /* SignUpPresenter.swift */; };
@@ -44,6 +47,11 @@
 		FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90B280C74350033A055 /* UserTypes.swift */; };
 		FCBAC90E280C76B90033A055 /* EventTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC90D280C76B90033A055 /* EventTypes.swift */; };
 		FCBAC916280C802F0033A055 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBAC915280C802F0033A055 /* AppDelegate.swift */; };
+		FCFFD6A3283A6BBA0021E1C4 /* Invites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */; };
+		FCFFD6A5283A6C730021E1C4 /* InvitesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */; };
+		FCFFD6A7283A6C7D0021E1C4 /* InvitesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */; };
+		FCFFD6A9283A6C8C0021E1C4 /* InvitesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */; };
+		FCFFD6AB283A85800021E1C4 /* InviteTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFFD6AA283A85800021E1C4 /* InviteTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +71,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		FC89DD9A282AF49E00FEE085 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FC89DD99282AF49E00FEE085 /* SwiftyVK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		FC3FD9CE280C83170057DBAB /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		FC3FD9D0280C841C0057DBAB /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
@@ -76,7 +98,6 @@
 		FC4FA78827FA157700483FEF /* NoCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA79227FA157700483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC4FA79427FA157800483FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC4FA79727FA157800483FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC4FA79927FA157800483FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC4FA79E27FA157800483FEF /* NoCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC4FA7A827FA157800483FEF /* NoCalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoCalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +106,8 @@
 		FC6EE1F227FC681A000DFC1D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		FC6EE1F627FC6876000DFC1D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyVK.framework; path = "Carthage/Build/SwiftyVK.xcframework/ios-arm64_i386_x86_64-simulator/SwiftyVK.framework"; sourceTree = "<group>"; };
+		FC89DD9B282C413E00FEE085 /* Hasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hasher.swift; sourceTree = "<group>"; };
 		FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SingleDay.storyboard; sourceTree = "<group>"; };
 		FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayView.swift; sourceTree = "<group>"; };
 		FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDayPresenter.swift; sourceTree = "<group>"; };
@@ -93,6 +116,7 @@
 		FCA87727281F3A6000B23CD6 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPresenter.swift; sourceTree = "<group>"; };
 		FCA8772B281F3A9000B23CD6 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCBAC8FC280C2C4C0033A055 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCBAC8FE280C35920033A055 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		FCBAC900280C35A00033A055 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
@@ -102,6 +126,11 @@
 		FCBAC915280C802F0033A055 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCBAC917280C80560033A055 /* Month.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Month.storyboard; sourceTree = "<group>"; };
 		FCBAC918280C80570033A055 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Invites.storyboard; sourceTree = "<group>"; };
+		FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesView.swift; sourceTree = "<group>"; };
+		FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesModel.swift; sourceTree = "<group>"; };
+		FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitesPresenter.swift; sourceTree = "<group>"; };
+		FCFFD6AA283A85800021E1C4 /* InviteTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC3FD9E4280DF3120057DBAB /* RealmSwift in Frameworks */,
+				FC89DD98282AF49E00FEE085 /* SwiftyVK.framework in Frameworks */,
 				FC74AC622817E511008FA4C8 /* FSCalendar in Frameworks */,
 				FC3FD9E2280DF3120057DBAB /* Realm in Frameworks */,
 			);
@@ -137,6 +167,7 @@
 			children = (
 				FC4FA78A27FA157700483FEF /* NoCalendar */,
 				FC4FA78927FA157700483FEF /* Products */,
+				FC89DD96282AF49E00FEE085 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,7 +190,6 @@
 				FC6EE1EE27FC67D2000DFC1D /* Views */,
 				FC518D3A27FA34A8009552F6 /* Utilities */,
 				FC4FA79427FA157800483FEF /* Assets.xcassets */,
-				FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */,
 				FC4FA79927FA157800483FEF /* Info.plist */,
 				FC6EE1F827FC70E0000DFC1D /* SceneDelegate.swift */,
 				FC4FA79127FA157700483FEF /* Main.storyboard */,
@@ -168,6 +198,8 @@
 				FC3FD9CE280C83170057DBAB /* Settings.storyboard */,
 				FCBAC918280C80570033A055 /* SignUp.storyboard */,
 				FCA8771B281EF8D100B23CD6 /* SingleDay.storyboard */,
+				FCFFD6A2283A6BBA0021E1C4 /* Invites.storyboard */,
+				FCAAB7582822F71E00AEC1E2 /* LaunchScreen.storyboard */,
 				FCA87725281F315000B23CD6 /* Event.storyboard */,
 			);
 			path = NoCalendar;
@@ -180,6 +212,7 @@
 				FCBAC8FC280C2C4C0033A055 /* Constants.swift */,
 				FC3FD9DC280C89F90057DBAB /* NetworkModule.swift */,
 				FC3FD9E5280DF5B00057DBAB /* DatabaseModule.swift */,
+				FC89DD9B282C413E00FEE085 /* Hasher.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -193,6 +226,7 @@
 				FC3FD9D8280C856C0057DBAB /* SettingsView.swift */,
 				FCA8771D281EF8DE00B23CD6 /* SingleDayView.swift */,
 				FCA87727281F3A6000B23CD6 /* EventView.swift */,
+				FCFFD6A4283A6C730021E1C4 /* InvitesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +240,7 @@
 				FC3FD9DA280C85780057DBAB /* SettingsPresenter.swift */,
 				FCA87721281EF9B700B23CD6 /* SingleDayPresenter.swift */,
 				FCA87729281F3A6B00B23CD6 /* EventPresenter.swift */,
+				FCFFD6A8283A6C8C0021E1C4 /* InvitesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -219,8 +254,17 @@
 				FC3FD9D6280C84AB0057DBAB /* MonthModel.swift */,
 				FCA87723281EF9C800B23CD6 /* SingleDayModel.swift */,
 				FCA8772B281F3A9000B23CD6 /* EventModel.swift */,
+				FCFFD6A6283A6C7D0021E1C4 /* InvitesModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FC89DD96282AF49E00FEE085 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC89DD97282AF49E00FEE085 /* SwiftyVK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		FCBAC90A280C741D0033A055 /* ObjectModels */ = {
@@ -228,6 +272,7 @@
 			children = (
 				FCBAC90B280C74350033A055 /* UserTypes.swift */,
 				FCBAC90D280C76B90033A055 /* EventTypes.swift */,
+				FCFFD6AA283A85800021E1C4 /* InviteTypes.swift */,
 			);
 			path = ObjectModels;
 			sourceTree = "<group>";
@@ -242,6 +287,7 @@
 				FC4FA78427FA157700483FEF /* Sources */,
 				FC4FA78527FA157700483FEF /* Frameworks */,
 				FC4FA78627FA157700483FEF /* Resources */,
+				FC89DD9A282AF49E00FEE085 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,11 +391,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAAB7592822F71E00AEC1E2 /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CD280C82810057DBAB /* Month.storyboard in Resources */,
+				FCFFD6A3283A6BBA0021E1C4 /* Invites.storyboard in Resources */,
 				FCA87726281F315000B23CD6 /* Event.storyboard in Resources */,
 				FC3FD9CC280C82750057DBAB /* SignUp.storyboard in Resources */,
 				FCA8771C281EF8D100B23CD6 /* SingleDay.storyboard in Resources */,
-				FC4FA79827FA157800483FEF /* LaunchScreen.storyboard in Resources */,
 				FC3FD9CF280C83170057DBAB /* Settings.storyboard in Resources */,
 				FC4FA79527FA157800483FEF /* Assets.xcassets in Resources */,
 				FC4FA79327FA157700483FEF /* Main.storyboard in Resources */,
@@ -390,10 +437,13 @@
 				FCA8772A281F3A6B00B23CD6 /* EventPresenter.swift in Sources */,
 				FC3FD9DD280C89F90057DBAB /* NetworkModule.swift in Sources */,
 				FC6EE1F727FC6876000DFC1D /* LoginModel.swift in Sources */,
+				FCFFD6A9283A6C8C0021E1C4 /* InvitesPresenter.swift in Sources */,
 				FC3FD9D3280C84360057DBAB /* MonthPresenter.swift in Sources */,
 				FC3FD9D5280C846F0057DBAB /* SettingsModel.swift in Sources */,
 				FC6EE1F027FC67DF000DFC1D /* LoginView.swift in Sources */,
 				FC518D3C27FA34D1009552F6 /* AppUtility.swift in Sources */,
+				FCFFD6A7283A6C7D0021E1C4 /* InvitesModel.swift in Sources */,
+				FCFFD6A5283A6C730021E1C4 /* InvitesView.swift in Sources */,
 				FCA87728281F3A6000B23CD6 /* EventView.swift in Sources */,
 				FCBAC8FF280C35920033A055 /* SignUpView.swift in Sources */,
 				FCA87724281EF9C800B23CD6 /* SingleDayModel.swift in Sources */,
@@ -402,7 +452,9 @@
 				FC6EE1F327FC681A000DFC1D /* LoginPresenter.swift in Sources */,
 				FC6EE1F927FC70E0000DFC1D /* SceneDelegate.swift in Sources */,
 				FC3FD9E6280DF5B00057DBAB /* DatabaseModule.swift in Sources */,
+				FC89DD9C282C413E00FEE085 /* Hasher.swift in Sources */,
 				FCBAC90C280C74350033A055 /* UserTypes.swift in Sources */,
+				FCFFD6AB283A85800021E1C4 /* InviteTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +494,6 @@
 				FC4FA79227FA157700483FEF /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		FC4FA79627FA157800483FEF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC4FA79727FA157800483FEF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -578,6 +622,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QD3B75486;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/SwiftyVK.xcframework/ios-arm64_i386_x86_64-simulator",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoCalendar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -608,6 +656,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3QD3B75486;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/SwiftyVK.xcframework/ios-arm64_i386_x86_64-simulator",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NoCalendar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
